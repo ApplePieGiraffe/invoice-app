@@ -7,7 +7,7 @@ import ThemeToggle from './ThemeToggle'
 const Wrapper = styled('sidebar')`
     display: flex;
     align-items: center;
-    background: ${props => props.theme.color.bg.sidebar};
+    background: ${props => props.theme.color.sidebar.bg};
     transition: background .3s;
 
     .sidebar-logo {

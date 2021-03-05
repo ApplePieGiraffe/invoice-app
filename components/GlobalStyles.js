@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background: ${props => props.theme.color.bg.main};
+        background: ${props => props.theme.color.body.bg};
         font-family: 'Spartan', sans-serif;
         transition: background .3s;
     }

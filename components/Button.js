@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 const Button = styled.button`
+    width: ${props => props.wide ? '100%' : 'initial'};
     border: none;
     border-radius: 10rem;
     padding: 1rem 1.5rem;
@@ -12,7 +13,7 @@ const Button = styled.button`
     letter-spacing: -0.25 px;
     line-height: 1.25;
     cursor: pointer;
-    transition: background .3s;
+    transition: background .3s, color .3s;
     outline: none;
 
     &:hover {
@@ -20,20 +21,20 @@ const Button = styled.button`
     }
 
     ${props => props.secondary && css`
-        background: ${props.theme.color.bg.btn.secondary.fill};
-        color: ${props.theme.color.bg.btn.secondary.text};
+        background: ${props.theme.color.btn.secondary.bg};
+        color: ${props.theme.color.btn.secondary.text};
 
         &:hover {
-            background: ${props.theme.color.bg.btn.secondary.hover};
+            background: ${props.theme.color.btn.secondary.hover};
         }
     `}
 
     ${props => props.tertiary && css`
-        background: ${props.theme.color.bg.btn.tertiary.fill};
-        color: ${props.theme.color.bg.btn.tertiary.text};
+        background: ${props.theme.color.btn.tertiary.bg};
+        color: ${props.theme.color.btn.tertiary.text};
 
         &:hover {
-            background: ${props.theme.color.bg.btn.tertiary.hover};
+            background: ${props.theme.color.btn.tertiary.hover};
         }
     `}
 
@@ -55,16 +56,3 @@ const Button = styled.button`
 `
 
 export default Button
-
-const IconWrapper = styled.span`
-    display: inline-flex;
-    margin-right: 1rem;
-    padding: .625rem;
-    background: white;
-    border-radius: 50%;
-`
-
-const Icon = styled.img`
-    width: .625rem;
-    height: .625rem;
-`

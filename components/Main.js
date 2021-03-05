@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import Button from './Button'
-
 const Wrapper = styled.main`
     padding: 2rem 1.5rem;
     width: 100%;
@@ -25,10 +23,6 @@ export default function Main({ children }) {
     return (
         <Wrapper>
             <Content>
-                <Button>Mark as Paid</Button>
-                <Button secondary>Edit</Button>
-                <Button tertiary>Save as Draft</Button>
-                <Button alert>Delete</Button>
                 {children}
             </Content>
         </Wrapper>
