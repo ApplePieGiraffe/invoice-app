@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Layout from '../components/Layout'
+import Main from '../components/Main'
 import Sidebar from '../components/Sidebar'
 
 export default function App({ Component, pageProps }) {
@@ -12,7 +13,9 @@ export default function App({ Component, pageProps }) {
 	return (
 		<Layout theme={theme}>
 			<Sidebar toggleTheme={toggleTheme}/>
-			<Component {...pageProps}/>
+			<Main>
+				<Component {...pageProps}/>
+			</Main>
 		</Layout>
 	)
 }
