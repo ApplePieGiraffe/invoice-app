@@ -1,44 +1,18 @@
-// imports
+import { useState } from 'react'
+import Layout from '../components/Layout'
+import Sidebar from '../components/Sidebar'
 
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+export default function App({ Component, pageProps }) {
+	const [theme, setTheme] = useState('light')
 
-// global styles
+    function toggleTheme() {
+        setTheme(theme === 'light' ? 'dark' : 'light')
+    }
 
-const GlobalStyles = createGlobalStyle`
-	*,
-	*::before,
-	*::after {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-`
-
-// themes
-
-const lightTheme = {
-	colors: {
-		primary: '#f8f8fb'
-	}
-}
-
-const darkTheme = {
-	colors: {
-		primary: '#141625'
-	}
-}
-
-// component
-
-function App({ Component, pageProps }) {
 	return (
-		<>
-			<GlobalStyles/>
-			<ThemeProvider theme={lightTheme}>
-				<Component {...pageProps}/>
-			</ThemeProvider>
-		</>
+		<Layout theme={theme}>
+			<Sidebar toggleTheme={toggleTheme}/>
+			<Component {...pageProps}/>
+		</Layout>
 	)
 }
-
-export default App

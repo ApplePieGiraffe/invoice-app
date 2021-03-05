@@ -12,6 +12,7 @@
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "store": "^2.0.12",
     "styled-components": "^5.2.1"
   }
 }
