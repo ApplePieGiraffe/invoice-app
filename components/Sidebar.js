@@ -5,6 +5,8 @@ import Logo from './Logo'
 import ThemeToggle from './ThemeToggle'
 
 const Wrapper = styled('sidebar')`
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     background: ${props => props.theme.color.sidebar.bg};

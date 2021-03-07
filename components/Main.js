@@ -22,9 +22,7 @@ const Content = styled.div`
 export default function Main({ children }) {
     return (
         <Wrapper>
-            <Content>
-                {children}
-            </Content>
+            {children}
         </Wrapper>
     )
 }
