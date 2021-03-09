@@ -10,7 +10,7 @@ const Wrapper = styled('div')`
     border-radius: 0 20px 20px 0;
     background: #7C5DFA;
 
-    &::after {
+    ::after {
         content: '';
         position: absolute;
         left: 0;
@@ -21,7 +21,7 @@ const Wrapper = styled('div')`
         border-radius: 20px 0 20px 0;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 900px) {
         width: 6.4375rem;
         height: 6.4375rem;
     }
@@ -33,7 +33,7 @@ const Image = styled.img`
     width: 31px;
     height: 29px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 900px) {
         width: 40px;
         height: 37px;
     }

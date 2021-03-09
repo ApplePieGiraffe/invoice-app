@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.main`
+    flex: 1;
+    display: flex;
+    align-items: center;
     padding: 2rem 1.5rem;
     width: 100%;
 
@@ -11,12 +14,6 @@ const Wrapper = styled.main`
     @media only screen and (min-width: 1024px) {
         padding: 4.5rem 3rem;
     }
-`
-
-const Content = styled.div`
-    width: 100%;
-    max-width: 45.625rem;
-    margin: 0 auto;
 `
 
 export default function Main({ children }) {

@@ -9,8 +9,9 @@ import Sidebar from '../components/Sidebar'
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
+    min-height: 100vh;
 
-	@media only screen and (min-width: 768px) {
+	@media only screen and (min-width: 900px) {
 		flex-direction: row;
 	}
 `

@@ -24,7 +24,7 @@ const Wrapper = styled('sidebar')`
         margin: 0 2rem;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 900px) {
         flex-direction: column;
         width: initial;
         height: 100vh;
@@ -50,7 +50,7 @@ const Divider = styled.div`
     align-self: stretch;
     background: #494E6E;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 900px) {
         width: 100%;
         height: 1px;
     }

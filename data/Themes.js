@@ -16,7 +16,19 @@ export const light = {
 				bg: '#363b53',
 				hover: '#0c0e16',
 				text: '#888eb0'
-			}
+			},
+		},
+		invoiceItem: {
+			bg: '#ffffff'
+		},
+		invoiceStatus: {
+			bg: 'rgba(55, 59, 83, 0.06)',
+			text: '#373B53'
+		},
+		text: {
+			heading: '#0C0E16',
+			bodyA: '#888eb0',
+			bodyB: '#858BB2'
 		}
 	},
 	icon: {
@@ -44,6 +56,18 @@ export const dark = {
 				hover: '#1e2139',
 				text: '#dfe3fa'
 			}
+		},
+		invoiceItem: {
+			bg: '#1E2139'
+		},
+		invoiceStatus: {
+			bg: 'rgba(223, 227, 250, .06)',
+			text: '#DFE3FA'
+		},
+		text: {
+			heading: '#ffffff',
+			bodyA: '#dfe3Fa',
+			bodyB: '#ffffff'
 		}
 	},
 	icon: {
