@@ -25,6 +25,13 @@ export const light = {
 			bg: 'rgba(55, 59, 83, 0.06)',
 			text: '#373B53'
 		},
+		dropdown: {
+			bg: '#ffffff',
+			shadow: 'rgba(72, 84, 159, 0.25)'
+		},
+		checkbox: {
+			bg: '#dfe3fa'
+		},
 		text: {
 			heading: '#0C0E16',
 			bodyA: '#888eb0',
@@ -63,6 +70,13 @@ export const dark = {
 		invoiceStatus: {
 			bg: 'rgba(223, 227, 250, .06)',
 			text: '#DFE3FA'
+		},
+		dropdown: {
+			bg: '#252945',
+			shadow: 'rgba(0, 0, 0, 0.25)'
+		},
+		checkbox: {
+			bg: '#1e2139'
 		},
 		text: {
 			heading: '#ffffff',

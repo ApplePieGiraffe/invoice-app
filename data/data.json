@@ -104,8 +104,8 @@
     "paymentDue": "2021-10-12",
     "description": "Logo Concept",
     "paymentTerms": 1,
-    "clientName": "Alysa Werner",
-    "clientEmail": "alysa@email.co.uk",
+    "clientName": "Alyssa Werner",
+    "clientEmail": "alyssa@email.co.uk",
     "status": "pending",
     "senderAddress": {
       "street": "19 Union Terrace",

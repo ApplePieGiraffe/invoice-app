@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
         background: ${props => props.theme.color.body.bg};
         font-family: 'Spartan', sans-serif;
         transition: background .3s;
+        -webkit-font-smoothing: antialiased;
     }
 `
 

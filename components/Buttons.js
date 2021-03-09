@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Header from './Header'
 
 const Button = styled.button`
     width: ${props => props.wide ? '100%' : 'initial'};
@@ -13,6 +14,7 @@ const Button = styled.button`
     font-weight: 700;
     letter-spacing: -0.25 px;
     line-height: 1.25;
+    -webkit-font-smoothing: antialiased;
 
     cursor: pointer;
     transition: background .3s, color .3s;
@@ -70,7 +72,7 @@ const StyledButton = styled(Button)`
 
 const IconWrapper = styled.span`
     display: inline-flex;
-    margin-right: 1rem;
+    margin-right: .5rem;
     padding: .625rem;
     background: white;
     border-radius: 50%;
@@ -81,9 +83,9 @@ const Icon = styled.img`
     height: .625rem;
 `
 
-export function ButtonPlus({children}) {
+export function ButtonPlus({className, children}) {
     return (
-        <StyledButton>
+        <StyledButton className={className}>
             <IconWrapper>
                 <Icon src="/images/icon-plus.svg" alt=""/>
             </IconWrapper>

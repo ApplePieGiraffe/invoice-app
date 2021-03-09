@@ -15,7 +15,6 @@ const StyledLink = styled.a`
     padding: 1rem 1.5rem;
     background: ${props => props.theme.color.invoiceItem.bg};
     
-    -webkit-font-smoothing: antialiased;
     transition: border .3s, background .3s;
     cursor: pointer;
 
@@ -23,23 +22,10 @@ const StyledLink = styled.a`
         border-color: #7C5DFA;
     }
 
-    .invoice-item-status {
-        grid-column: 2 / 3;
-        grid-row: 2 / 4;
-        margin-left: auto;
-    }
-
     @media only screen and (min-width: 768px) {
         grid-template-columns: 5rem 9rem 1fr min-content min-content min-content;
         grid-template-rows: min-content;
         align-items: center;
-
-        .invoice-item-status {
-            grid-column: 5 / 6;
-            grid-row: 1 / 2;
-            margin-left: 2.5rem;
-            margin-right: 1.25rem;
-        }
     }
 `
 
@@ -91,6 +77,19 @@ const Total = styled(Heading2)`
     }
 `
 
+const StyledInvoiceStatus = styled(InvoiceStatus)`
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+    margin-left: auto;
+
+    @media only screen and (min-width: 768px) {
+        grid-column: 5 / 6;
+        grid-row: 1 / 2;
+        margin-left: 2.5rem;
+        margin-right: 1.25rem;
+    }
+`
+
 const Arrow = styled.img`
     display: none;
 
@@ -109,7 +108,7 @@ export default function InvoiceItem({ id, paymentDue, clientName, total, status 
                 <PaymentDue>Due {dayjs(paymentDue).format('DD MMM YYYY')}</PaymentDue>
                 <ClientName>{clientName}</ClientName>
                 <Total as="div">£{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Total>
-                <InvoiceStatus className="invoice-item-status" status={status}/>
+                <StyledInvoiceStatus status={status}/>
                 <Arrow src="/images/icon-arrow-right.svg" alt=""/>
             </StyledLink>
         </Link>

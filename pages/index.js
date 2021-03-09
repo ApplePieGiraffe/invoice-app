@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Header from '../components/Header'
 import NoInvoices from '../components/NoInvoices'
 import InvoicesList from '../components/InvoicesList'
 
@@ -16,6 +17,7 @@ const Wrapper = styled.div`
 export default function Home({ invoices }) {
 	return (
 		<Wrapper>
+			<Header invoices={invoices}/>
 			{invoices && invoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={invoices}/>}
 		</Wrapper>
 	)

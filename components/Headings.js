@@ -32,5 +32,5 @@ export const Heading4 = styled.h4`
     ${baseStyles}
     font-size: ${props => props.size || '.75rem'};
     line-height: 1.25;
-    letter-spacing: -1px;
+    letter-spacing: -.5px;
 `
