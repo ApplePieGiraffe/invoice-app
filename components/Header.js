@@ -1,8 +1,11 @@
 import styled from 'styled-components'
+
 import Dropdown from './Dropdown'
 import { Heading1 } from './Headings'
 import { TextA } from './Typography'
 import { ButtonPlus } from './Buttons'
+
+import { invoicesMessage } from '../data/Utilities'
 
 const Wrapper = styled.div`
     display: flex;
@@ -41,12 +44,14 @@ const Button = styled(ButtonPlus)`
     }
 `
 
-export default function Header({ invoices, setFilter }) {
+export default function Header({ invoices, filter, setFilter }) {
+    const message = invoicesMessage(invoices && invoices.length, filter)
+
     return (
         <Wrapper>
             <TextWrapper>
                 <Heading>Invoices</Heading>
-                <Subheading>There are {invoices && invoices.length} total invoices.</Subheading>
+                <Subheading>{message}</Subheading>
             </TextWrapper>
             <Dropdown setFilter={setFilter}/>
             <Button>New <span className="btn-plus-invoice">Invoice</span></Button>

@@ -18,7 +18,6 @@ export default function App({ Component, pageProps }) {
 		<>
 			<Head>
 				<link rel="icon" href="/images/favicon-32x32.png" type="image/icon"/>
-				<title>Invoice App {invoices && invoices.length !== 0 && `(${invoices.length})`} | Frontend Mentor</title>
 			</Head>
 			<Layout>
 				<Component {...pageProps} invoices={invoices}/>

@@ -1,9 +1,12 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
+
 import InvoiceStatus from './InvoiceStatus'
 import { Heading2 } from './Headings'
 import { TextA } from './Typography'
+
+import { addCommas } from '../data/Utilities'
 
 const StyledLink = styled.a`
     display: grid;
@@ -107,7 +110,7 @@ export default function InvoiceItem({ id, paymentDue, clientName, total, status 
                 <Id><span>#</span>{id}</Id>
                 <PaymentDue>Due {dayjs(paymentDue).format('DD MMM YYYY')}</PaymentDue>
                 <ClientName>{clientName}</ClientName>
-                <Total as="div">£{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Total>
+                <Total as="div">£{addCommas(total)}</Total>
                 <StyledInvoiceStatus status={status}/>
                 <Arrow src="/images/icon-arrow-right.svg" alt=""/>
             </StyledLink>
