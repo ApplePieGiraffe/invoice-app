@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
+import DropdownOption from './DropdownOption'
 import { Heading4 } from './Headings'
-import { TextA } from './Typography'
 
 const Header = styled.button`
     height: 2rem;
@@ -52,68 +52,36 @@ const Wrapper = styled.div`
     }
 `
 
-// option items
-
-const StyledOption = styled.label`
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-    input {
-        display: none;
-
-        :hover + div {
-            border: 1px solid #7C5DFA;
-        }
-
-        :checked + div {
-            background: #7C5DFA;
-
-            > img {
-                opacity: 1;
-            }
-        }
-    }
-
-    span {
-        ${TextA}
-        color: ${props => props.theme.color.text.heading};
-        font-weight: bold;
-        margin-bottom: -1px;
-    }
-`
-
-const Checkbox = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1rem;
-    height: 1rem;
-    margin-right: 1rem;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    background: ${props => props.theme.color.checkbox.bg};
-
-    img {
-        opacity: 0;
-    }
-`
-
-function Option({ children }) {
-    return (
-        <StyledOption>
-            <input type="checkbox"/>
-            <Checkbox>
-                <img src="/images/icon-check.svg" alt=""/>
-            </Checkbox>
-            <span>{children}</span>
-        </StyledOption>
-    )
-}
-
-export default function Dropdown() {
+export default function Dropdown({ setFilter }) {
     const [open, setOpen] = useState(false)
-    const [selected, setSelected] = useState(null)
+
+    const [options, setOptions] = useState([
+        {
+            id: 0,
+            value: 'paid',
+            checked: false
+        },
+        {
+            id: 1,
+            value: 'pending',
+            checked: false
+        },
+        {
+            id: 2,
+            value: 'draft',
+            checked: false
+        }
+    ])
+
+    function handleClick(id) {
+        setOptions(options.map((option) => {
+            if (id === option.id) {
+                setFilter(option.checked ? null : option.value)
+                return {...option, checked: !option.checked}
+            }
+            return {...option, checked: false}
+        }))
+    }
 
     return (
         <Wrapper open={open}>
@@ -122,9 +90,13 @@ export default function Dropdown() {
                 <img src="/images/icon-arrow-down.svg" alt=""/>
             </Header>
             <Options id="dropdown-filter-options" aria-labelledby="dropdown-filter-header">
-                <Option>Paid</Option>
-                <Option>Pending</Option>
-                <Option>Draft</Option>
+                {options.map((option) => {
+                    return (
+                        <DropdownOption key={option.id} id={option.id} checked={option.checked} handleClick={handleClick}>
+                            {option.value}
+                        </DropdownOption>
+                    )
+                })}
             </Options>
         </Wrapper>
     )

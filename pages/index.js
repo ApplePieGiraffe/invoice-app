@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Header from '../components/Header'
 import NoInvoices from '../components/NoInvoices'
@@ -15,10 +16,25 @@ const Wrapper = styled.div`
 `
 
 export default function Home({ invoices }) {
+	const [filter, setFilter] = useState(null)
+	const [filteredInvoices, setFilteredInvoices] = useState(null)
+	
+	useEffect(() => {
+		setFilteredInvoices(invoices)
+
+		if (invoices && filter) {
+			setFilteredInvoices(invoices.filter((invoice) => {
+				return invoice.status === filter
+			}))
+		}
+
+		console.log('rendered')
+	}, [invoices, filter])
+
 	return (
 		<Wrapper>
-			<Header invoices={invoices}/>
-			{invoices && invoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={invoices}/>}
+			<Header invoices={invoices} setFilter={setFilter}/>
+			{invoices && invoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={filteredInvoices}/>}
 		</Wrapper>
 	)
 }

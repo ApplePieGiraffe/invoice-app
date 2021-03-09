@@ -41,14 +41,14 @@ const Button = styled(ButtonPlus)`
     }
 `
 
-export default function Header({ filter, invoices }) {
+export default function Header({ invoices, setFilter }) {
     return (
         <Wrapper>
             <TextWrapper>
                 <Heading>Invoices</Heading>
                 <Subheading>There are {invoices && invoices.length} total invoices.</Subheading>
             </TextWrapper>
-            <Dropdown/>
+            <Dropdown setFilter={setFilter}/>
             <Button>New <span className="btn-plus-invoice">Invoice</span></Button>
         </Wrapper>
     )
