@@ -66,6 +66,7 @@ export default Button
 // button with '+'
 
 const StyledButton = styled(Button)`
+    min-width: 5.875rem;
     padding: .5rem;
     padding-right: 1rem;
 `

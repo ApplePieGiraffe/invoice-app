@@ -35,7 +35,9 @@ export const light = {
 		text: {
 			heading: '#0C0E16',
 			bodyA: '#888eb0',
-			bodyB: '#858BB2'
+			bodyB: '#858BB2',
+			link: '#0c0e16',
+			linkHover: '#7e88c3'
 		}
 	},
 	icon: {
@@ -69,7 +71,7 @@ export const dark = {
 		},
 		invoiceStatus: {
 			bg: 'rgba(223, 227, 250, .06)',
-			text: '#DFE3FA'
+			text: '#dfe3fa'
 		},
 		dropdown: {
 			bg: '#252945',
@@ -81,7 +83,9 @@ export const dark = {
 		text: {
 			heading: '#ffffff',
 			bodyA: '#dfe3Fa',
-			bodyB: '#ffffff'
+			bodyB: '#ffffff',
+			link: '#ffffff',
+			linkHover: '#888eb0'
 		}
 	},
 	icon: {

@@ -7,10 +7,6 @@ import NoInvoices from '../components/NoInvoices'
 import InvoicesList from '../components/InvoicesList'
 
 const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
 	width: 100%;
 	max-width: 45.625rem;
 	height: 100%;
@@ -29,7 +25,6 @@ export default function Home({ invoices }) {
 				return invoice.status === filter
 			}))
 		}
-
 		// console.log('rendered')
 	}, [invoices, filter])
 

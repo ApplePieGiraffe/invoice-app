@@ -105,7 +105,7 @@ const Arrow = styled.img`
 
 export default function InvoiceItem({ id, paymentDue, clientName, total, status }) {
     return (
-        <Link href="/">
+        <Link href={`/invoice/${id}`}>
             <StyledLink>
                 <Id><span>#</span>{id}</Id>
                 <PaymentDue>Due {dayjs(paymentDue).format('DD MMM YYYY')}</PaymentDue>

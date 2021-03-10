@@ -22,6 +22,11 @@ const TextWrapper = styled.div`
 
 const Heading = styled(Heading1)`
     margin-bottom: .5rem;
+    font-size: 1.25rem;
+
+    @media only screen and (min-width: 550px) {
+        font-size: 2rem;
+    }
 `
 
 const Subheading = styled.div`

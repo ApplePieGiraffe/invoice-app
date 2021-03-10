@@ -1,21 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import DropdownOption from './DropdownOption'
 import { Heading4 } from './Headings'
 
 const Header = styled.button`
+    width: max-content;
     height: 2rem;
     border: none;
     background: transparent;
     cursor: pointer;
     outline: none;
 
-    span {
-        margin-right: 1rem;
-    }
-
     img {
         transition: transform .3s;
+    }
+`
+
+const Heading = styled(Heading4)`
+    margin-right: .75rem;
+
+    span {
+        display: none;
+    }
+
+    @media only screen and (min-width: 550px) {
+        margin-right: 1rem;
+
+        span {
+            display: initial;
+        }
     }
 `
 
@@ -53,6 +66,7 @@ const Wrapper = styled.div`
 `
 
 export default function Dropdown({ setFilter }) {
+    const dropdown = useRef()
     const [open, setOpen] = useState(false)
 
     const [options, setOptions] = useState([
@@ -83,10 +97,23 @@ export default function Dropdown({ setFilter }) {
         }))
     }
 
+    function handleClickOutside(e) {
+        if (dropdown.current && !dropdown.current.contains(e.target)) {
+            setOpen(false)
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+    })
+
     return (
-        <Wrapper open={open}>
+        <Wrapper ref={dropdown} open={open}>
             <Header id="dropdown-filter-header" aria-controls="dropdown-filter-options" onClick={() => setOpen(!open)}>
-                <Heading4 as="span">Filter by status</Heading4>
+                <Heading as="span">Filter <span>by status</span></Heading>
                 <img src="/images/icon-arrow-down.svg" alt=""/>
             </Header>
             <Options id="dropdown-filter-options" aria-labelledby="dropdown-filter-header">
