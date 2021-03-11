@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
-import HomeLink from '../../components/StyledLink'
+import HomeLink from '../../components/HomeLink'
 import InvoiceHeader from '../../components/InvoiceHeader'
 import InvoiceBody from '../../components/InvoiceBody'
 import InvoiceFooter from '../../components/InvoiceFooter'
@@ -18,20 +18,27 @@ const Wrapper = styled.div`
 	max-width: 45.625rem;
 	height: 100%;
 	margin: 0 auto;
-
-    > a {
-        margin-bottom: 2rem;
-    }
+    padding: 2rem 1.5rem 3.5rem 1.5rem;
 
     .invoice-page-header {
         margin-bottom: 1rem;
     }
 
     @media only screen and (min-width: 768px) {
+        padding: 3.5rem 3rem;
+
         .invoice-page-header {
             margin-bottom: 1.5rem;
         }
     }
+
+    @media only screen and (min-width: 1024px) {
+        padding: 4.5rem 3rem;
+    }
+`
+
+const StyledLink = styled(HomeLink)`
+    margin-bottom: 2rem;
 `
 
 export default function Invoice({ invoices, setInvoices }) {
@@ -44,7 +51,7 @@ export default function Invoice({ invoices, setInvoices }) {
         setInvoice(invoices && invoices.find(invoice => router.query.id === invoice.id))
     }, [router.query, invoices])
 
-    function handleClick() {
+    function handlePaid() {
         markAsPaid(id, invoices, setInvoices)
     }
 
@@ -54,11 +61,11 @@ export default function Invoice({ invoices, setInvoices }) {
                 <title>Invoice | {id && `#${id}`}</title>
             </Head>
             <Wrapper>
-                <HomeLink/>
-                <InvoiceHeader className="invoice-page-header" status={invoice && invoice.status} handleClick={handleClick}/>
+                <StyledLink/>
+                <InvoiceHeader className="invoice-page-header" status={invoice && invoice.status} handlePaid={handlePaid}/>
                 {invoice && <InvoiceBody invoice={invoice}/>}
             </Wrapper>
-            {/* <InvoiceFooter/> */}
+            <InvoiceFooter handlePaid={handlePaid}/>
         </>
     )
 }

@@ -23,18 +23,22 @@ const TableHead = styled.thead`
     ${TextB}
 
     th {
-        padding: 2rem;
-        padding-top: 0;
+        padding: 0 0 2rem 0;
         font-weight: 500;
         text-align: end;
     }
 
     th:nth-child(1) {
+        padding: 0 0 2rem 2rem;
         text-align: start;
     }
 
     th:nth-child(2) {
         text-align: center;
+    }
+
+    th:last-child {
+        padding: 0 2rem 2rem 0;
     }
 
     @media only screen and (min-width: 550px) {
@@ -46,8 +50,6 @@ const TableHead = styled.thead`
 
 const TableBody = styled.tbody`
     td {
-        padding: 2rem;
-        padding-top: 0;
         font-size: .75rem;
         font-weight: bold;
         transition: color .3s;
@@ -55,6 +57,7 @@ const TableBody = styled.tbody`
 `
 
 const ItemName = styled.td`
+    padding: 0 0 2rem 2rem;
     color: ${props => props.theme.color.text.heading};
     text-align: start;
 `
@@ -66,6 +69,7 @@ const ItemQuantity = styled.td`
 
     @media only screen and (min-width: 550px) {
         display: table-cell;
+        padding: 0 0 2rem 0;
     }
 `
 
@@ -76,10 +80,12 @@ const ItemPrice = styled.td`
 
     @media only screen and (min-width: 550px) {
         display: table-cell;
+        padding: 0 0 2rem 0;
     }
 `
 
 const ItemTotal = styled.td`
+    padding: 0 2rem 2rem 0;
     color: ${props => props.theme.color.text.heading};
     text-align: end;
 `
@@ -92,7 +98,7 @@ const TableFooter = styled.tfoot`
 `
 
 const Amount = styled.th`
-    padding: 2rem;
+    padding: 2rem 0 2rem 2rem;
     color: white;
     font-size: .6875rem;
     text-align: start;
@@ -103,11 +109,12 @@ const EmptyTd = styled.td`
 
     @media only screen and (min-width: 550px) {
         display: table-cell;
+        padding: 0;
     }
 `
 
 const Total = styled.td`
-    padding: 2rem;
+    padding: 2rem 2rem 2rem 0;
     color: white;
     font-size: 1.25rem;
     font-weight: bold;

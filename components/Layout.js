@@ -3,7 +3,6 @@ import Store from 'store'
 import styled, { ThemeProvider } from 'styled-components'
 import { light, dark } from '../data/Themes'
 import GlobalStyles from './GlobalStyles'
-import Main from '../components/Main'
 import Sidebar from '../components/Sidebar'
 
 const Wrapper = styled.div`
@@ -36,7 +35,7 @@ export default function Layout({ children }) {
             <GlobalStyles/>
             <Wrapper>
                 <Sidebar toggleTheme={toggleTheme}/>
-                <Main>{children}</Main>
+                {children}
             </Wrapper>
         </ThemeProvider>
     )

@@ -1,17 +1,12 @@
 import styled from 'styled-components'
-import InvoiceStatus from './InvoiceStatus'
 import Button from './Buttons'
-import { TextA } from './Typography'
 
 const Wrapper = styled.div`
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: .5rem;
+    width: 100%;
     padding: 1.5rem;
     background: ${props => props.theme.color.invoiceItem.bg};
     transition: background .3s;
@@ -21,12 +16,12 @@ const Wrapper = styled.div`
     }
 `
 
-export default function InvoiceFooter() {
+export default function InvoiceFooter({ handlePaid }) {
     return (
         <Wrapper>
             <Button secondary>Edit</Button>
             <Button alert>Delete</Button>
-            <Button>Mark As Paid</Button>
+            <Button onClick={handlePaid}>Mark As Paid</Button>
         </Wrapper>
     )
 }
