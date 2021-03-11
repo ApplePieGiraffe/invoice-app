@@ -31,7 +31,7 @@ export default function Home({ invoices }) {
 	return (
 		<>
 			<Head>
-				<title>Invoice App {filteredInvoices && filteredInvoices.length !== 0 && `(${filteredInvoices.length})`} | Frontend Mentor</title>
+				<title>Invoices {filteredInvoices && filteredInvoices.length !== 0 && `(${filteredInvoices.length})`} | Frontend Mentor</title>
 			</Head>
 			<Wrapper>
 				<Header invoices={filteredInvoices} filter={filter} setFilter={setFilter}/>

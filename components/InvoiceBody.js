@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import dayjs from 'dayjs'
 
+import InvoiceTable from './InvoiceTable'
 import { Heading1, Heading3 } from './Headings'
 import { TextA, TextB } from './Typography'
 
@@ -14,6 +15,11 @@ const Wrapper = styled.section`
     padding: 1.5rem;
     background: ${props => props.theme.color.invoiceItem.bg};
     transition: background .3s;
+
+    .invoice-table {
+        grid-column: 1 / -1;
+        grid-row: 6 / 7;
+    }
 
     @media only screen and (min-width: 768px) {
         grid-template-columns: 1fr 1fr 1fr;
@@ -164,6 +170,8 @@ export default function InvoiceBody({ invoice }) {
                 <EmailTitle>Sent to</EmailTitle>
                 <Subheading as="span">{invoice.clientEmail}</Subheading>
             </Email>
+
+            <InvoiceTable className="invoice-table" items={invoice.items} total={invoice.total}/>
         </Wrapper>
     )
 }

@@ -25,6 +25,10 @@ export const light = {
 			bg: 'rgba(55, 59, 83, 0.06)',
 			text: '#373B53'
 		},
+		invoiceTable: {
+			bg: '#f9fafe',
+			footerBg: '#373b53'
+		},
 		dropdown: {
 			bg: '#ffffff',
 			shadow: 'rgba(72, 84, 159, 0.25)'
@@ -72,6 +76,10 @@ export const dark = {
 		invoiceStatus: {
 			bg: 'rgba(223, 227, 250, .06)',
 			text: '#dfe3fa'
+		},
+		invoiceTable: {
+			bg: '#252945',
+			footerBg: '#0C0e16'
 		},
 		dropdown: {
 			bg: '#252945',
