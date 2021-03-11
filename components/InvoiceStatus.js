@@ -25,7 +25,6 @@ const Circle = styled.div`
         if (props.status === 'pending') return '#FF8F00'
         if (props.status === 'draft') return props.theme.color.invoiceStatus.text
     }};
-    transition: background .3s;
 `
 
 const Text = styled.div`

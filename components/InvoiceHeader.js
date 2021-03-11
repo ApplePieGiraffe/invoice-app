@@ -33,7 +33,7 @@ const Buttons = styled.div`
     }
 `
 
-export default function InvoiceHeader({ className, status }) {
+export default function InvoiceHeader({ className, status, handleClick }) {
     return (
         <Wrapper className={className}>
             <Status>Status</Status>
@@ -41,7 +41,7 @@ export default function InvoiceHeader({ className, status }) {
             <Buttons>
                 <Button secondary>Edit</Button>
                 <Button alert>Delete</Button>
-                <Button>Mark As Paid</Button>
+                <Button onClick={handleClick}>Mark As Paid</Button>
             </Buttons>
         </Wrapper>
     )

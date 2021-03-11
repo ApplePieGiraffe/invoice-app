@@ -8,6 +8,8 @@ import InvoiceHeader from '../../components/InvoiceHeader'
 import InvoiceBody from '../../components/InvoiceBody'
 import InvoiceFooter from '../../components/InvoiceFooter'
 
+import { markAsPaid } from '../../data/Utilities'
+
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -32,7 +34,7 @@ const Wrapper = styled.div`
     }
 `
 
-export default function Invoice({ invoices }) {
+export default function Invoice({ invoices, setInvoices }) {
     const router = useRouter()
     const [id, setId] = useState(null)
     const [invoice, setInvoice] = useState(null)
@@ -40,7 +42,11 @@ export default function Invoice({ invoices }) {
     useEffect(() => {
         setId(router.query.id)
         setInvoice(invoices && invoices.find(invoice => router.query.id === invoice.id))
-    }, [router.query])
+    }, [router.query, invoices])
+
+    function handleClick() {
+        markAsPaid(id, invoices, setInvoices)
+    }
 
     return (
         <>
@@ -49,7 +55,7 @@ export default function Invoice({ invoices }) {
             </Head>
             <Wrapper>
                 <HomeLink/>
-                <InvoiceHeader className="invoice-page-header" status={invoice && invoice.status}/>
+                <InvoiceHeader className="invoice-page-header" status={invoice && invoice.status} handleClick={handleClick}/>
                 {invoice && <InvoiceBody invoice={invoice}/>}
             </Wrapper>
             {/* <InvoiceFooter/> */}
