@@ -29,6 +29,9 @@ export const light = {
 			bg: '#f9fafe',
 			footerBg: '#373b53'
 		},
+		popup: {
+			bg: '#ffffff'
+		},
 		dropdown: {
 			bg: '#ffffff',
 			shadow: 'rgba(72, 84, 159, 0.25)'
@@ -71,7 +74,7 @@ export const dark = {
 			}
 		},
 		invoiceItem: {
-			bg: '#1E2139'
+			bg: '#1e2139'
 		},
 		invoiceStatus: {
 			bg: 'rgba(223, 227, 250, .06)',
@@ -80,6 +83,9 @@ export const dark = {
 		invoiceTable: {
 			bg: '#252945',
 			footerBg: '#0C0e16'
+		},
+		popup: {
+			bg: '#1e2139'
 		},
 		dropdown: {
 			bg: '#252945',

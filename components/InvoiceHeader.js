@@ -33,14 +33,14 @@ const Buttons = styled.div`
     }
 `
 
-export default function InvoiceHeader({ className, status, handlePaid }) {
+export default function InvoiceHeader({ className, status, setPopupIsOpen, handlePaid }) {
     return (
         <Wrapper className={className}>
             <Status>Status</Status>
             <InvoiceStatus status={status}/>
             <Buttons>
                 <Button secondary>Edit</Button>
-                <Button alert>Delete</Button>
+                <Button alert onClick={() => setPopupIsOpen(true)}>Delete</Button>
                 <Button onClick={handlePaid}>Mark As Paid</Button>
             </Buttons>
         </Wrapper>

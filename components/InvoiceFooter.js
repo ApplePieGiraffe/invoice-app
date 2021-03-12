@@ -16,11 +16,11 @@ const Wrapper = styled.div`
     }
 `
 
-export default function InvoiceFooter({ handlePaid }) {
+export default function InvoiceFooter({ setPopupIsOpen, handlePaid }) {
     return (
         <Wrapper>
             <Button secondary>Edit</Button>
-            <Button alert>Delete</Button>
+            <Button alert onClick={() => setPopupIsOpen(true)}>Delete</Button>
             <Button onClick={handlePaid}>Mark As Paid</Button>
         </Wrapper>
     )
