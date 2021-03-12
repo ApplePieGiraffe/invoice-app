@@ -44,6 +44,7 @@ const Heading = styled(Heading2)`
 const Message = styled.p`
     margin-bottom: 1.5rem;
     ${TextA}
+    line-height: 1.375rem;
 
     @media only screen and (min-width: 768px) {
         margin-bottom: 1rem;

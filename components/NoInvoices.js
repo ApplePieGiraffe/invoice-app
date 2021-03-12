@@ -18,8 +18,9 @@ const Heading = styled(Heading2)`
 `
 
 const Paragraph = styled.p`
-    ${TextA}
     max-width: 12.5rem;
+    ${TextA}
+    line-height: 1rem;
 
     span {
         font-weight: bold;

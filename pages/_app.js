@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Store from 'store'
 import data from '../data/data.json'
+import { deleteInvoice } from '../data/Utilities'
 import Layout from '../components/Layout'
 
 export default function App({ Component, pageProps }) {
@@ -15,14 +16,6 @@ export default function App({ Component, pageProps }) {
 		}
 		setInvoices(Store.get('invoices'))
 	}, [setInvoices])
-
-	function deleteInvoice(id, invoices, setInvoices) {
-		const newInvoices = invoices.filter((invoice) => {
-			return id !== invoice.id
-		})
-		setInvoices(newInvoices)
-		Store.set('invoices', newInvoices)
-	}
 
 	function handleDelete(id) {
 		router.push('/')
