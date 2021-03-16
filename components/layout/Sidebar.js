@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Avatar from './Avatar'
-import Logo from './Logo'
+import Avatar from '../shared/Avatar'
+import Logo from '../shared/Logo'
 import ThemeToggle from './ThemeToggle'
 
 const Wrapper = styled('sidebar')`

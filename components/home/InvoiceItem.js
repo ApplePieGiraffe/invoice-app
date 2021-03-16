@@ -2,11 +2,11 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
 
-import InvoiceStatus from './InvoiceStatus'
-import { Heading2 } from './Headings'
-import { TextA } from './Typography'
+import InvoiceStatus from '../shared/InvoiceStatus'
+import { Heading2 } from '../shared/Headings'
+import { TextA } from '../shared/Typography'
 
-import { addCommas } from '../data/Utilities'
+import { addCommas } from '../../data/Utilities'
 
 const StyledLink = styled.a`
     display: grid;

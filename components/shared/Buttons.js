@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import Header from './Header'
 
 const Button = styled.button`
     width: ${props => props.wide ? '100%' : 'initial'};

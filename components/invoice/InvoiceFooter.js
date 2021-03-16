@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import Button from './Buttons'
+
+import Button from '../shared/Buttons'
 
 const Wrapper = styled.div`
     display: flex;

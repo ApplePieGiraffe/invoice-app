@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import { TextA } from './Typography'
+
+// import Wrapper from './Wrapper'
+import { TextA } from '../shared/Typography'
 
 const Wrapper = styled.a`
     dispay: flex;
     align-items: center;
+    margin-bottom: 2rem;
     cursor: pointer;
 
     :hover span {

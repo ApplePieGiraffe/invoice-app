@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
+
 import DropdownOption from './DropdownOption'
-import { Heading4 } from './Headings'
+import { Heading4 } from '../shared/Headings'
 
 const Header = styled.button`
     width: max-content;

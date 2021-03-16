@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import Store from 'store'
 import styled, { ThemeProvider } from 'styled-components'
-import { light, dark } from '../data/Themes'
+import { light, dark } from '../../data/Themes'
+
 import GlobalStyles from './GlobalStyles'
-import Sidebar from '../components/Sidebar'
+import Sidebar from './Sidebar'
 
 const Wrapper = styled.div`
 	display: flex;

@@ -3,8 +3,9 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Store from 'store'
 import data from '../data/data.json'
+
+import Layout from '../components/layout/Layout'
 import { deleteInvoice } from '../data/Utilities'
-import Layout from '../components/Layout'
 
 export default function App({ Component, pageProps }) {
 	const router = useRouter()

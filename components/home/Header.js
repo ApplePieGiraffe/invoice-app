@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 import Dropdown from './Dropdown'
-import { Heading1 } from './Headings'
-import { TextA } from './Typography'
-import { ButtonPlus } from './Buttons'
+import { Heading1 } from '../shared/Headings'
+import { TextA } from '../shared/Typography'
+import { ButtonPlus } from '../shared/Buttons'
 
-import { invoicesMessage } from '../data/Utilities'
+import { invoicesMessage } from '../../data/Utilities'
 
 const Wrapper = styled.div`
     display: flex;

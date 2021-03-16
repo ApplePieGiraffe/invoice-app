@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import InvoiceStatus from './InvoiceStatus'
-import Button from './Buttons'
-import { TextA } from './Typography'
+
+import InvoiceStatus from '../shared/InvoiceStatus'
+import Button from '../shared/Buttons'
+import { TextA } from '../shared/Typography'
 
 const Wrapper = styled.div`
     width: 100%;

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import ScrollLock from 'react-scrolllock'
-import Button from './Buttons'
-import { Heading2 } from './Headings'
-import { TextA } from './Typography'
+
+import Button from '../shared/Buttons'
+import { Heading2 } from '../shared/Headings'
+import { TextA } from '../shared/Typography'
 
 const Backdrop = styled.div`
     position: fixed;

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import InvoiceItem from '../components/InvoiceItem'
+import InvoiceItem from './InvoiceItem'
 
 const Wrapper = styled.div`
     display: flex;

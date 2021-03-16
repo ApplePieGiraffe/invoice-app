@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import dayjs from 'dayjs'
 
 import InvoiceTable from './InvoiceTable'
-import { Heading1, Heading3 } from './Headings'
-import { TextA, TextB } from './Typography'
+import { Heading1, Heading3 } from '../shared/Headings'
+import { TextA, TextB } from '../shared/Typography'
 
 const Wrapper = styled.section`
     display: grid;

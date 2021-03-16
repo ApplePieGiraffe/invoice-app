@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { TextA } from './Typography'
+
+import { TextA } from '../shared/Typography'
 
 const StyledOption = styled.label`
     display: flex;
