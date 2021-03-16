@@ -29,10 +29,10 @@ export default function Home({ invoices }) {
 				<title>Invoices {filteredInvoices && filteredInvoices.length !== 0 && `(${filteredInvoices.length})` || ''} | Frontend Mentor</title>
 			</Head>
 			<HomeMain>
-				{/* <CreateInvoiceForm/> */}
+				<CreateInvoiceForm/>
 				<Wrapper>
 					<Header invoices={filteredInvoices} filter={filter} setFilter={setFilter}/>
-					{invoices && invoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={filteredInvoices}/>}
+					{filteredInvoices && filteredInvoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={filteredInvoices}/>}
 				</Wrapper>
 			</HomeMain>
 		</>

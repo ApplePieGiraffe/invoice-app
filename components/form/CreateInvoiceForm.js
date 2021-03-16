@@ -3,45 +3,65 @@ import * as Yup from 'yup'
 
 import Form from './Form'
 
+// const initialValues = {
+//     senderAddress: {
+//         street: '',
+//         city: '',
+//         postCode: '',
+//         country: ''
+//     },
+//     clientName: '',
+//     clientEmail: '',
+//     clientAddress: {
+//         street: '',
+//         city: '',
+//         postCode: '',
+//         country: ''
+//     },
+//     paymentDue: '',
+//     paymentTerms: '',
+//     createdAt: '',
+//     description: '',
+//     items: []
+// }
+
 const initialValues = {
     senderAddress: {
-        street: '',
-        city: '',
-        postCode: '',
-        country: ''
+        street: '24133 Baker Street',
+        city: 'Brownsville',
+        postCode: 'PO Box 7791',
+        country: 'USA'
     },
-    clientName: '',
-    clientEmail: '',
+    clientName: 'Luke Skywalker',
+    clientEmail: 'lukeskywalker@example.com',
     clientAddress: {
-        street: '',
-        city: '',
-        postCode: '',
-        country: ''
+        street: '#EA-T100.95',
+        city: 'Coruscant',
+        postCode: 'SO Box 89aas78',
+        country: 'Space'
     },
-    paymentDue: '',
-    paymentTerms: '',
-    description: '',
+    createdAt: '',
+    description: 'Mostly Jedi stuff... none of your business!',
     items: []
 }
 
 const validationSchema = Yup.object().shape({
     senderAddress: Yup.object().shape({
-        street: Yup.string().required(`Can't be empty.`),
-        city: Yup.string().required(`Can't be empty.`),
-        postCode: Yup.string().required(`Can't be empty.`),
-        country: Yup.string().required(`Can't be empty.`),
+        street: Yup.string().required('Required'),
+        city: Yup.string().required('Required'),
+        postCode: Yup.string().required('Required'),
+        country: Yup.string().required('Required'),
     }),
-    clientName: Yup.string().required(`Can't be empty.`),
-    clientEmail: Yup.string().email('Invalid email.').required(`Can't be empty.`),
+    clientName: Yup.string().required('Required'),
+    clientEmail: Yup.string().email('Invalid email.').required('Required'),
     clientAddress: Yup.object().shape({
-        street: Yup.string().required(`Can't be empty.`),
-        city: Yup.string().required(`Can't be empty.`),
-        postCode: Yup.string().required(`Can't be empty.`),
-        country: Yup.string().required(`Can't be empty.`),
+        street: Yup.string().required('Required'),
+        city: Yup.string().required('Required'),
+        postCode: Yup.string().required('Required'),
+        country: Yup.string().required('Required'),
     }),
-    paymentDue: Yup.string().required(`Can't be empty.`),
-    paymentTerms: Yup.string().required(`Can't be empty.`),
-    description: Yup.string().required(`Can't be empty.`),
+    createdAt: Yup.date().required('Required'),
+    description: Yup.string().required('Required'),
     items: Yup.array().required()
 })
 
@@ -58,8 +78,9 @@ export default function CreateInvoiceForm() {
         >
             {
                 (formik) => {
-                    // console.log(formik)
-                    return <Form/>
+                    return (
+                        <Form/>
+                    )
                 }
             }
         </Formik>

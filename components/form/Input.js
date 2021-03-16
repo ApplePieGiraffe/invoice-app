@@ -19,18 +19,22 @@ const Label = styled.label`
 const ErrorMessage = styled.div`
     grid-column: 2 / -1;
     color: #EC5757;
+    font-size: .625rem;
     text-align: end;
 `
 
 const Field = styled.input`
     grid-column: 1 / -1;
+    width: 100%;
     border: 1px solid ${props => props.valid ? props.theme.color.form.fieldBorder : '#EC5757'};
     border-radius: 4px;
     padding: 1rem 1.25rem;
     background: ${props => props.theme.color.form.fieldBg};
     outline: none;
     ${TextA}
-    transition: border .3s, background .3s;
+    color: ${props => props.theme.color.text.heading};
+    font-weight: bold;
+    transition: color .3s, border .3s, background .3s;
 
     :focus {
         border: 1px solid #9277FF;

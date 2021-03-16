@@ -2,6 +2,8 @@ import { Form as FormikForm } from 'formik'
 import styled from 'styled-components'
 
 import Input from './Input'
+import DatePicker from './DatePicker'
+import Button from '../shared/Buttons'
 import { Heading2 } from '../shared/Headings'
 import { TextA } from '../shared/Typography'
 
@@ -24,6 +26,10 @@ const StyledForm = styled(FormikForm)`
         padding: 2.5rem;
     }
 
+    @media only screen and (min-width: 600px) {
+        padding: 3.5rem;
+        border-radius: 0 20px 20px 0;
+    }
 `
 
 const Heading = styled(Heading2)`
@@ -35,6 +41,7 @@ const Fields = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    margin-bottom: 5.625rem;
 `
 
 const FieldSet = styled.fieldset`
@@ -120,6 +127,29 @@ const BillTo = styled.div`
     }
 `
 
+const OtherFields = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    > *:nth-child(1) {
+        grid-column: 1 / 2;
+    }
+
+    > *:nth-child(2) {
+        grid-column: 1 / -1;
+    }
+`
+
+const Buttons = styled.div`
+    display: flex;
+    gap: .5rem;
+
+    button:nth-child(1) {
+        margin-right: auto;
+    }
+`
+
 export default function Form() {
     return (
         <StyledForm>
@@ -148,9 +178,17 @@ export default function Form() {
                 </FieldSet>
 
                 <FieldSet>
+                    <OtherFields>
+                        <DatePicker label="Invoice Date" name="createdAt"/>
                         <Input label="Description" name="description"/>
+                    </OtherFields>
                 </FieldSet>
             </Fields>
+            <Buttons>
+                <Button type="button" secondary>Discard</Button>
+                <Button type="button" tertiary>Save as Draft</Button>
+                <Button type="submit">Save and Send</Button>
+            </Buttons>
         </StyledForm>
     )
 }
