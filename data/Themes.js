@@ -6,6 +6,11 @@ export const light = {
 		sidebar: {
 			bg: '#373b53'
 		},
+		form: {
+			bg: '#ffffff',
+			fieldBg: '#ffffff',
+			fieldBorder: '#DFE3FA'
+		},
 		btn: {
 			secondary: {
 				bg: '#f9fafe',
@@ -43,6 +48,7 @@ export const light = {
 			heading: '#0C0E16',
 			bodyA: '#888eb0',
 			bodyB: '#858BB2',
+			formLabel: '#7E88C3',
 			link: '#0c0e16',
 			linkHover: '#7e88c3'
 		}
@@ -60,6 +66,11 @@ export const dark = {
 		},
 		sidebar: {
 			bg: '#1e2139'
+		},
+		form: {
+			bg: '#141625',
+			fieldBg: '#1e2139',
+			fieldBorder: '#252945'
 		},
 		btn: {
 			secondary: {
@@ -98,6 +109,7 @@ export const dark = {
 			heading: '#ffffff',
 			bodyA: '#dfe3Fa',
 			bodyB: '#ffffff',
+			formLabel: '#dfe3fa',
 			link: '#ffffff',
 			linkHover: '#888eb0'
 		}

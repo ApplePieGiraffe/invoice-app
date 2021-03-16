@@ -6,7 +6,7 @@ import InvoiceStatus from '../shared/InvoiceStatus'
 import { Heading2 } from '../shared/Headings'
 import { TextA } from '../shared/Typography'
 
-import { addCommas } from '../../data/Utilities'
+import { addCommas } from '../../utilities/Misc'
 
 const StyledLink = styled.a`
     display: grid;

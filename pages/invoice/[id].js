@@ -9,7 +9,7 @@ import InvoiceHeader from '../../components/invoice/InvoiceHeader'
 import InvoiceBody from '../../components/invoice/InvoiceBody'
 import InvoiceFooter from '../../components/invoice/InvoiceFooter'
 
-import { markAsPaid } from '../../data/Utilities'
+import { markAsPaid } from '../../utilities/Invoices'
 
 export default function Invoice({ invoices, setInvoices, handleDelete }) {
     const router = useRouter()

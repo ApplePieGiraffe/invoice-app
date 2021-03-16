@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { TextB } from '../shared/Typography'
-import { addCommas } from '../../data/Utilities'
+import { addCommas } from '../../utilities/Misc'
 
 const Wrapper = styled.div`
     border-radius: 8px;

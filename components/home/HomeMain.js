@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Main from '../layout/Main'
 
 const HomeMain = styled(Main)`
+    position: relative;
     padding: 2rem 1.5rem;
 
     @media only screen and (min-width: 768px) {

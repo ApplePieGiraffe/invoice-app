@@ -21,6 +21,12 @@ export function deleteInvoice(id, invoices, setInvoices) {
     Store.set('invoices', newInvoices)
 }
 
+export function addInvoice(invoice, invoices, setInvoices) {
+    const newInvoices = [...invoices, invoice]
+    setInvoices(newInvoices)
+    Store.set('invoices', newInvoices)
+}
+
 // create a new invoice
 
 export function generateRandomId() {
