@@ -1,5 +1,5 @@
 import { useFormikContext, useField } from 'formik'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { fontStylesA } from '../shared/Typography'
 
@@ -8,6 +8,32 @@ const Wrapper = styled.div`
     grid-template-columns: max-content 1fr;
     grid-row-gap: .625rem;
     ${fontStylesA}
+
+    ${props => props.hideLabels && css`
+        @media only screen and (min-width: 600px) {
+            & > *:nth-child(1) {
+                clip: rect(0 0 0 0);
+                clip-path: inset(50%);
+                height: 1px;
+                overflow: hidden;
+                position: absolute;
+                white-space: nowrap;
+                width: 1px;
+            }
+        } 
+    `}
+
+    ${props => props.hideErrors && css`
+        & > *:nth-child(2) {
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+    `}
 `
 
 const Label = styled.label`
@@ -36,20 +62,36 @@ const Field = styled.input`
     font-weight: bold;
     transition: color .3s, border .3s, background .3s;
 
+    ::placeholder {
+        color: ${props => props.theme.color.text.placeholder};
+        transition: color .3s;
+    }
+
     :focus {
         border: 1px solid #9277FF;
     }
+
+    ${props => props.faded && css`
+        border: none;
+        padding: 1rem 0;
+        background: transparent;
+        color: #888EB0;
+
+        :focus {
+            border: none;
+        }
+    `}
 `
 
-export default function Input({ label, name }) {
+export default function Input({ label, name, hideLabels, hideErrors, ...rest }) {
     const { submitCount } = useFormikContext()
     const [field, meta] = useField(name)
 
     return (
-        <Wrapper>
+        <Wrapper hideLabels={hideLabels} hideErrors={hideErrors}>
             <Label htmlFor={name} valid={!(meta.touched && meta.error)}>{label}</Label>
             <ErrorMessage>{submitCount > 0 && meta.error}</ErrorMessage>
-            <Field id={name} {...field} valid={!(meta.touched && meta.error)}/>
+            <Field id={name} {...field} valid={!(meta.touched && meta.error)} {...rest}/>
         </Wrapper>
     )
 }

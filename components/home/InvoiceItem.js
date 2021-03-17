@@ -110,7 +110,7 @@ export default function InvoiceItem({ id, paymentDue, clientName, total, status 
                 <Id><span>#</span>{id}</Id>
                 <PaymentDue>Due {dayjs(paymentDue).format('DD MMM YYYY')}</PaymentDue>
                 <ClientName>{clientName}</ClientName>
-                <Total as="div">£{total ? addCommas(total) : '-'}</Total>
+                <Total as="div">{total ? `£${addCommas(total)}` : '-'}</Total>
                 <StyledInvoiceStatus status={status}/>
                 <Arrow src="/images/icon-arrow-right.svg" alt=""/>
             </StyledLink>

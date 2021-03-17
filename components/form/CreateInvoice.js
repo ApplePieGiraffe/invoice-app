@@ -6,47 +6,33 @@ import { addInvoice } from '../../utilities/Invoices'
 import { emptyInvoice } from '../../utilities/Invoices'
 import { generateUniqueId } from '../../utilities/Id'
 
+import { initialValues } from '../../data/Form'
+
 // const initialValues = {
 //     senderAddress: {
-//         street: '',
-//         city: '',
-//         postCode: '',
-//         country: ''
+//         street: 'Plot 11 Ntinda Avenue',
+//         city: 'Kampala',
+//         postCode: 'PO Box 4431',
+//         country: 'Uganda'
 //     },
-//     clientName: '',
-//     clientEmail: '',
+//     clientName: 'Princess Leia',
+//     clientEmail: 'princessleia@example.com',
 //     clientAddress: {
-//         street: '',
-//         city: '',
-//         postCode: '',
-//         country: ''
+//         street: '24885 Basel Drive',
+//         city: 'Crestline',
+//         postCode: 'ZIP 82325',
+//         country: 'Crestline'
 //     },
-//     paymentDue: '',
+//     createdAt: new Date(),
 //     paymentTerms: '4',
-//     createdAt: '',
-//     description: '',
-//     items: []
+//     description: 'Shoveling snow',
+//     items: [{
+//         name: 'Super Sneakers',
+//         quantity: 1,
+//         price: 150.00,
+//         total: 150.00
+//     }]
 // }
-
-const initialValues = {
-    senderAddress: {
-        street: 'Plot 11 Ntinda Avenue',
-        city: 'Kampala',
-        postCode: 'PO Box 4431',
-        country: 'Uganda'
-    },
-    clientName: 'Princess Leia',
-    clientEmail: 'princessleia@example.com',
-    clientAddress: {
-        street: '24885 Basel Drive',
-        city: 'Crestline',
-        postCode: 'ZIP 82325',
-        country: 'Crestline'
-    },
-    createdAt: '',
-    paymentTerms: '4',
-    description: 'Shoveling snow',
-}
 
 const validationSchema = Yup.object().shape({
     senderAddress: Yup.object().shape({
@@ -66,6 +52,12 @@ const validationSchema = Yup.object().shape({
     createdAt: Yup.date().required('Required'),
     paymentTerms: Yup.string().required('Required'),
     description: Yup.string().required('Required'),
+    // items: Yup.array().of(Yup.object().shape({
+    //     name: Yup.string().required('Required'),
+    //     quantity: Yup.number().required('Required'),
+    //     price: Yup.number().required('Required'),
+    //     total: Yup.number().required('Required'),
+    // }))
 })
 
 export default function CreateInvoice({ invoices, setInvoices, setCreateInvoiceIsOpen }) {
@@ -75,8 +67,6 @@ export default function CreateInvoice({ invoices, setInvoices, setCreateInvoiceI
             ...values,
             id: generateUniqueId(invoices),
             status: 'pending',
-            total: '1000',
-            items: [],
         }
         addInvoice(newInvoice, invoices, setInvoices)
         setCreateInvoiceIsOpen(false)
@@ -91,7 +81,7 @@ export default function CreateInvoice({ invoices, setInvoices, setCreateInvoiceI
             {
                 (formik) => {
                     return (
-                        <Form type="create"/>
+                        <Form type="create" setCreateInvoiceIsOpen={setCreateInvoiceIsOpen}/>
                     )
                 }
             }

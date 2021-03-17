@@ -50,21 +50,20 @@ const Button = styled.button`
     `}
 
     ${props => props.quaternary && css`
-        background: #EC5757;
+        background: ${props.theme.color.btn.quaternary.bg};
+        color: ${props.theme.color.btn.quaternary.text};
 
         :hover {
-            background: #FF9797;
+            background: ${props.theme.color.btn.quaternary.hover};
         }
     `}
 `
 
 export default Button
 
-// OTHER VARIANTS
+// button plus
 
-// button with '+'
-
-const StyledButton = styled(Button)`
+const StyledButtonPlus = styled(Button)`
     min-width: 5.875rem;
     padding: .5rem;
     padding-right: 1rem;
@@ -85,11 +84,46 @@ const Icon = styled.img`
 
 export function ButtonPlus({ children, ...rest }) {
     return (
-        <StyledButton {...rest}>
+        <StyledButtonPlus {...rest}>
             <IconWrapper>
                 <Icon src="/images/icon-plus.svg" alt=""/>
             </IconWrapper>
             {children}
-        </StyledButton>
+        </StyledButtonPlus>
+    )
+}
+
+// delete button
+
+const StyledDeleteButton = styled.button`
+    align-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+
+    svg {
+        fill: #888EB0;
+        transition: fill .3s;
+    }
+
+    :hover {
+        svg {
+            fill: #EC5757;
+        }
+    }
+`
+
+export function DeleteButton({ ...rest }) {
+    return (
+        <StyledDeleteButton type="button" aria-label="delete item" {...rest}>
+            <svg width="13" height="16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.583 3.556v10.666c0 .982-.795 1.778-1.777 1.778H2.694a1.777 1.777 0 01-1.777-1.778V3.556h10.666zM8.473 0l.888.889h3.111v1.778H.028V.889h3.11L4.029 0h4.444z" fill-rule="nonzero"/>
+            </svg>
+        </StyledDeleteButton>
     )
 }

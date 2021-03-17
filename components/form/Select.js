@@ -1,4 +1,4 @@
-import { Field, useField } from 'formik'
+import { useField } from 'formik'
 import styled from 'styled-components'
 
 import { fontStylesA } from '../shared/Typography'

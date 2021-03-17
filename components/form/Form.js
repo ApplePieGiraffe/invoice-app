@@ -1,40 +1,58 @@
 import { Form as FormikForm } from 'formik'
 import styled from 'styled-components'
 
-import Input from './Input'
-import DatePicker from './DatePicker'
-import Select from './Select'
+import Backdrop from './Backdrop'
 import Button from '../shared/Buttons'
+import DatePicker from './DatePicker'
+import Input from './Input'
+import Items from './Items'
+import Select from './Select'
+
 import { Heading2 } from '../shared/Headings'
 import { fontStylesA } from '../shared/Typography'
 
-const StyledForm = styled(FormikForm)`
+const Wrapper = styled.div`
     position: absolute;
-    top: 0;
+    top: 5rem;
     left: 0;
-    z-index: 1;
-
-    height: 100%;
-    width: 100%;
-    max-width: 38.5rem;
-    padding: 2rem 1.5rem;
     background: ${props => props.theme.color.form.bg};
-    
-    overflow-y: scroll;
     transition: background .3s;
 
-    @media only screen and (min-width: 450px) {
-        padding: 2.5rem;
+    @media only screen and (min-width: 650px) {
+        border-radius: 0 20px 20px 0;
     }
 
-    @media only screen and (min-width: 600px) {
-        padding: 3.5rem;
+    @media only screen and (min-width: 900px) {
+        top: 0;
+        padding-left: 6.4375rem;
         border-radius: 0 20px 20px 0;
     }
 `
 
+const StyledForm = styled(FormikForm)`
+    display: grid;
+    grid-template-column: min-content 1fr min-content;
+    height: calc(100vh - 5rem);
+    width: 100%;
+    max-width: 40rem;
+    padding: 2rem 1.5rem 0 1.5rem;
+
+    @media only screen and (min-width: 500px) {
+        padding: 2.5rem 2rem 0 2.5rem;
+    }
+
+    @media only screen and (min-width: 600px) {
+        padding: 3.5rem 2rem 0 3.5rem;
+        border-radius: 0 20px 20px 0;
+    }
+
+    @media only screen and (min-width: 900px) {
+        height: 100vh;
+    }
+`
+
 const Heading = styled(Heading2)`
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     font-size: 1.5rem;
 `
 
@@ -42,7 +60,11 @@ const Fields = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
-    margin-bottom: 5.625rem;
+    padding-right: 2rem;
+    overflow-y: scroll;
+
+    scrollbar-width: thin;
+    scrollbar-color: red;
 `
 
 const FieldSet = styled.fieldset`
@@ -148,6 +170,7 @@ const OtherFields = styled.div`
 
 const Buttons = styled.div`
     display: flex;
+    padding: 2rem 0;
     gap: .5rem;
 
     button:nth-child(1) {
@@ -162,47 +185,55 @@ const dropdownOptions = [
     {name: 'Net 30 Days', value: 4}
 ]
 
-export default function Form({ type, id }) {
+export default function Form({ type, id, setCreateInvoiceIsOpen }) {
     return (
-        <StyledForm>
-            {type === 'create' && <Heading>Create Invoice</Heading>}
-            {type === 'edit' && <Heading>Edit <span>#</span>{id}</Heading>}
-            <Fields>
-                <FieldSet>
-                    <Legend>Bill From</Legend>
-                    <BillFrom>
-                        <Input label="Street Address" name="senderAddress.street"/>
-                        <Input label="City" name="senderAddress.city"/>
-                        <Input label="Post Code" name="senderAddress.postCode"/>
-                        <Input label="Country" name="senderAddress.country"/>
-                    </BillFrom>
-                </FieldSet>
+        <Backdrop>
+            <Wrapper>
+                <StyledForm>
+                    {type === 'create' && <Heading>Create Invoice</Heading>}
+                    {type === 'edit' && <Heading>Edit <span>#</span>{id}</Heading>}
 
-                <FieldSet>
-                    <Legend>Bill To</Legend>
-                    <BillTo>
-                        <Input label="Client's Name" name="clientName"/>
-                        <Input label="Client's Email" name="clientEmail"/>
-                        <Input label="Street Address" name="clientAddress.street"/>
-                        <Input label="City" name="clientAddress.city"/>
-                        <Input label="Post Code" name="clientAddress.postCode"/>
-                        <Input label="Country" name="clientAddress.country"/>
-                    </BillTo>
-                </FieldSet>
+                    <Fields>
+                        <FieldSet>
+                            <Legend>Bill From</Legend>
+                            <BillFrom>
+                                <Input label="Street Address" name="senderAddress.street"/>
+                                <Input label="City" name="senderAddress.city"/>
+                                <Input label="Post Code" name="senderAddress.postCode"/>
+                                <Input label="Country" name="senderAddress.country"/>
+                            </BillFrom>
+                        </FieldSet>
 
-                <FieldSet>
-                    <OtherFields>
-                        <DatePicker label="Invoice Date" name="createdAt"/>
-                        <Select label="Payment Terms" name="paymentTerms" options={dropdownOptions}/>
-                        <Input label="Description" name="description"/>
-                    </OtherFields>
-                </FieldSet>
-            </Fields>
-            <Buttons>
-                <Button type="button" secondary>Discard</Button>
-                <Button type="button" tertiary>Save as Draft</Button>
-                <Button type="submit">Save and Send</Button>
-            </Buttons>
-        </StyledForm>
+                        <FieldSet>
+                            <Legend>Bill To</Legend>
+                            <BillTo>
+                                <Input label="Client's Name" name="clientName"/>
+                                <Input label="Client's Email" name="clientEmail" placeholder="e.g. email@example.com"/>
+                                <Input label="Street Address" name="clientAddress.street"/>
+                                <Input label="City" name="clientAddress.city"/>
+                                <Input label="Post Code" name="clientAddress.postCode"/>
+                                <Input label="Country" name="clientAddress.country"/>
+                            </BillTo>
+                        </FieldSet>
+
+                        <FieldSet>
+                            <OtherFields>
+                                <DatePicker label="Invoice Date" name="createdAt"/>
+                                <Select label="Payment Terms" name="paymentTerms" options={dropdownOptions}/>
+                                <Input label="Description" name="description" placeholder="e.g. Graphic Design Service"/>
+                            </OtherFields>
+                        </FieldSet>
+
+                        <Items name="items"/>
+                    </Fields>
+
+                    <Buttons>
+                        <Button type="button" secondary onClick={() => setCreateInvoiceIsOpen(false)}>Discard</Button>
+                        <Button type="button" tertiary>Save as Draft</Button>
+                        <Button type="submit">Save and Send</Button>
+                    </Buttons>
+                </StyledForm>
+            </Wrapper>
+        </Backdrop>
     )
 }

@@ -71,6 +71,7 @@ export default function DatePicker({ label, name }) {
                 selected={field.value}
                 onChange={value => setFieldValue(name, value)}
                 customInput={<CustomInput/>}
+                dateFormat="MMM d, yyyy"
             />
         </Wrapper>
     )
