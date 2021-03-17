@@ -27,21 +27,22 @@ import Form from './Form'
 
 const initialValues = {
     senderAddress: {
-        street: '24133 Baker Street',
-        city: 'Brownsville',
-        postCode: 'PO Box 7791',
-        country: 'USA'
+        street: 'Plot 11 Ntinda Avenue',
+        city: 'Kampala',
+        postCode: 'PO Box 4431',
+        country: 'Uganda'
     },
-    clientName: 'Luke Skywalker',
-    clientEmail: 'lukeskywalker@example.com',
+    clientName: 'Princess Leia',
+    clientEmail: 'princessleia@example.com',
     clientAddress: {
-        street: '#EA-T100.95',
-        city: 'Coruscant',
-        postCode: 'SO Box 89aas78',
-        country: 'Space'
+        street: '24885 Basel Drive',
+        city: 'Crestline',
+        postCode: 'ZIP 82325',
+        country: 'Crestline'
     },
     createdAt: '',
-    description: 'Mostly Jedi stuff... none of your business!',
+    paymentTerms: '',
+    description: 'Shoveling snow',
     items: []
 }
 
@@ -61,6 +62,7 @@ const validationSchema = Yup.object().shape({
         country: Yup.string().required('Required'),
     }),
     createdAt: Yup.date().required('Required'),
+    paymentTerms: Yup.string().required('Required'),
     description: Yup.string().required('Required'),
     items: Yup.array().required()
 })
@@ -69,7 +71,7 @@ function onSubmit(values) {
     console.log('values', values)
 }
 
-export default function CreateInvoiceForm() {
+export default function CreateInvoice() {
     return (
         <Formik 
             initialValues={initialValues} 
@@ -78,8 +80,9 @@ export default function CreateInvoiceForm() {
         >
             {
                 (formik) => {
+                    // console.log('formik', formik)
                     return (
-                        <Form/>
+                        <Form type="edit" id="FN2816"/>
                     )
                 }
             }

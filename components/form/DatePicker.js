@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { Field, useField } from 'formik'
+import { useFormikContext, useField } from 'formik'
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import styled from 'styled-components'
@@ -42,7 +42,7 @@ const Button = styled.button`
 
     outline: none;
     cursor: pointer;
-    transition: border .3s, background .3s;
+    transition: color .3s, border .3s, background .3s;
 
     :focus {
         border: 1px solid #9277FF;
@@ -50,6 +50,9 @@ const Button = styled.button`
 `
 
 export default function DatePicker({ label, name }) {
+    const { setFieldTouched, setFieldValue } = useFormikContext()
+    const [field, meta] = useField(name)
+
     const CustomInput = forwardRef(
         ({ value, onClick }, ref) => (
             <Button type="button" onClick={onClick} ref={ref} valid="true">
@@ -62,23 +65,13 @@ export default function DatePicker({ label, name }) {
     return (
         <Wrapper>
             <Label htmlFor={name} valid="true">{label}</Label>
-            <Field name={name} onBlur={field.onBlur}>
-                {
-                    ({ field, form }) => {
-                        const { value } = field
-                        const { setFieldValue } = form
-                        return (
-                            <ReactDatePicker 
-                                id={name} 
-                                {...field}
-                                selected={value}
-                                onChange={value => setFieldValue(name, value)}
-                                customInput={<CustomInput/>}
-                            />
-                        )
-                    }
-                }
-            </Field>
+            <ReactDatePicker 
+                id={name} 
+                {...field}
+                selected={field.value}
+                onChange={value => setFieldValue(name, value)}
+                customInput={<CustomInput/>}
+            />
         </Wrapper>
     )
 }

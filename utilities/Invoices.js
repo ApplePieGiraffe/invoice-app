@@ -14,6 +14,12 @@ export function deleteInvoice(id, invoices, setInvoices) {
     Store.set('invoices', newInvoices)
 }
 
+export function updateInvoice(invoice, invoices, setInvoices) {
+    const newInvoices = null
+    setInvoices(newInvoices)
+    Store.set('invoices', newInvoices)
+}
+
 export function markAsPaid(id, invoices, setInvoices) {
     const newInvoices = invoices.map((invoice) => {
         if (id === invoice.id) {

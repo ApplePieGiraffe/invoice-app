@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Input from './Input'
 import DatePicker from './DatePicker'
+import Select from './Select'
 import Button from '../shared/Buttons'
 import { Heading2 } from '../shared/Headings'
 import { TextA } from '../shared/Typography'
@@ -137,6 +138,10 @@ const OtherFields = styled.div`
     }
 
     > *:nth-child(2) {
+        grid-column: 2 / -1;
+    }
+
+    > *:nth-child(3) {
         grid-column: 1 / -1;
     }
 `
@@ -150,10 +155,18 @@ const Buttons = styled.div`
     }
 `
 
-export default function Form() {
+const dropdownOptions = [
+    {name: 'Net 1 Day', value: 1},
+    {name: 'Net 7 Days', value: 2},
+    {name: 'Net 14 Days', value: 3},
+    {name: 'Net 30 Days', value: 4}
+]
+
+export default function Form({ type, id }) {
     return (
         <StyledForm>
-            <Heading>New Invoice</Heading>
+            {type === 'create' && <Heading>Create Invoice</Heading>}
+            {type === 'edit' && <Heading>Edit <span>#</span>{id}</Heading>}
             <Fields>
                 <FieldSet>
                     <Legend>Bill From</Legend>
@@ -180,6 +193,7 @@ export default function Form() {
                 <FieldSet>
                     <OtherFields>
                         <DatePicker label="Invoice Date" name="createdAt"/>
+                        <Select label="Payment Terms" name="paymentTerms" options={dropdownOptions}/>
                         <Input label="Description" name="description"/>
                     </OtherFields>
                 </FieldSet>

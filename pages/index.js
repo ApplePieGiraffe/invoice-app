@@ -7,7 +7,7 @@ import Header from '../components/home/Header'
 import NoInvoices from '../components/home/NoInvoices'
 import InvoicesList from '../components/home/InvoicesList'
 
-import CreateInvoiceForm from '../components/form/CreateInvoiceForm'
+import CreateInvoice from '../components/form/CreateInvoice'
 
 export default function Home({ invoices }) {
 	const [filter, setFilter] = useState(null)
@@ -29,7 +29,7 @@ export default function Home({ invoices }) {
 				<title>Invoices {filteredInvoices && filteredInvoices.length !== 0 && `(${filteredInvoices.length})` || ''} | Frontend Mentor</title>
 			</Head>
 			<HomeMain>
-				<CreateInvoiceForm/>
+				{/* <CreateInvoice/> */}
 				<Wrapper>
 					<Header invoices={filteredInvoices} filter={filter} setFilter={setFilter}/>
 					{filteredInvoices && filteredInvoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={filteredInvoices}/>}
