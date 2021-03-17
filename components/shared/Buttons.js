@@ -83,9 +83,9 @@ const Icon = styled.img`
     height: .625rem;
 `
 
-export function ButtonPlus({className, children}) {
+export function ButtonPlus({ children, ...rest }) {
     return (
-        <StyledButton className={className}>
+        <StyledButton {...rest}>
             <IconWrapper>
                 <Icon src="/images/icon-plus.svg" alt=""/>
             </IconWrapper>

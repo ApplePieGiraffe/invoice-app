@@ -2,6 +2,9 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 
 import Form from './Form'
+import { addInvoice } from '../../utilities/Invoices'
+import { emptyInvoice } from '../../utilities/Invoices'
+import { generateUniqueId } from '../../utilities/Id'
 
 // const initialValues = {
 //     senderAddress: {
@@ -19,7 +22,7 @@ import Form from './Form'
 //         country: ''
 //     },
 //     paymentDue: '',
-//     paymentTerms: '',
+//     paymentTerms: '4',
 //     createdAt: '',
 //     description: '',
 //     items: []
@@ -41,9 +44,8 @@ const initialValues = {
         country: 'Crestline'
     },
     createdAt: '',
-    paymentTerms: '',
+    paymentTerms: '4',
     description: 'Shoveling snow',
-    items: []
 }
 
 const validationSchema = Yup.object().shape({
@@ -64,14 +66,22 @@ const validationSchema = Yup.object().shape({
     createdAt: Yup.date().required('Required'),
     paymentTerms: Yup.string().required('Required'),
     description: Yup.string().required('Required'),
-    items: Yup.array().required()
 })
 
-function onSubmit(values) {
-    console.log('values', values)
-}
+export default function CreateInvoice({ invoices, setInvoices, setCreateInvoiceIsOpen }) {
+    function onSubmit(values) {
+        const newInvoice = {
+            ...emptyInvoice,
+            ...values,
+            id: generateUniqueId(invoices),
+            status: 'pending',
+            total: '1000',
+            items: [],
+        }
+        addInvoice(newInvoice, invoices, setInvoices)
+        setCreateInvoiceIsOpen(false)
+    }
 
-export default function CreateInvoice() {
     return (
         <Formik 
             initialValues={initialValues} 
@@ -80,9 +90,8 @@ export default function CreateInvoice() {
         >
             {
                 (formik) => {
-                    // console.log('formik', formik)
                     return (
-                        <Form type="edit" id="FN2816"/>
+                        <Form type="create"/>
                     )
                 }
             }

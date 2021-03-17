@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 
 import InvoiceStatus from '../shared/InvoiceStatus'
 import { Heading2 } from '../shared/Headings'
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 
 import { addCommas } from '../../utilities/Misc'
 
@@ -48,7 +48,7 @@ const Id = styled(Heading2)`
 `
 
 const PaymentDue = styled.div`
-    ${TextA}
+    ${fontStylesA}
 
     @media only screen and (min-width: 768px) {
         grid-column: 2 / 3;
@@ -59,7 +59,7 @@ const PaymentDue = styled.div`
 const ClientName = styled.div`
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    ${TextA}
+    ${fontStylesA}
     color: ${props => props.theme.color.text.bodyB};
     text-align: end;
 
@@ -110,7 +110,7 @@ export default function InvoiceItem({ id, paymentDue, clientName, total, status 
                 <Id><span>#</span>{id}</Id>
                 <PaymentDue>Due {dayjs(paymentDue).format('DD MMM YYYY')}</PaymentDue>
                 <ClientName>{clientName}</ClientName>
-                <Total as="div">£{addCommas(total)}</Total>
+                <Total as="div">£{total ? addCommas(total) : '-'}</Total>
                 <StyledInvoiceStatus status={status}/>
                 <Arrow src="/images/icon-arrow-right.svg" alt=""/>
             </StyledLink>

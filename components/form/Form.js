@@ -6,13 +6,13 @@ import DatePicker from './DatePicker'
 import Select from './Select'
 import Button from '../shared/Buttons'
 import { Heading2 } from '../shared/Headings'
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 
 const StyledForm = styled(FormikForm)`
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 200;
+    z-index: 1;
 
     height: 100%;
     width: 100%;
@@ -51,7 +51,7 @@ const FieldSet = styled.fieldset`
 
 const Legend = styled.legend`
     margin-bottom: 1.5rem;
-    ${TextA}
+    ${fontStylesA}
     color: #7C5DFA;
     font-weight: bold;
 `

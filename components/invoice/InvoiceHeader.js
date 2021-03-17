@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import InvoiceStatus from '../shared/InvoiceStatus'
 import Button from '../shared/Buttons'
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 
 const Wrapper = styled.div`
     width: 100%;
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 `
 
 const Status = styled.span`
-    ${TextA}
+    ${fontStylesA}
     margin-right: auto;
 
     @media only screen and (min-width: 650px) {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Heading2 } from '../shared/Headings'
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 
 const Wrapper = styled.div`
     display: flex;
@@ -19,7 +19,7 @@ const Heading = styled(Heading2)`
 
 const Paragraph = styled.p`
     max-width: 12.5rem;
-    ${TextA}
+    ${fontStylesA}
     line-height: 1rem;
 
     span {

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Dropdown from './Dropdown'
 import { Heading1 } from '../shared/Headings'
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 import { ButtonPlus } from '../shared/Buttons'
 
 import { invoicesMessage } from '../../utilities/Misc'
@@ -30,7 +30,7 @@ const Heading = styled(Heading1)`
 `
 
 const Subheading = styled.div`
-    ${TextA}
+    ${fontStylesA}
 `
 
 const Button = styled(ButtonPlus)`
@@ -49,7 +49,7 @@ const Button = styled(ButtonPlus)`
     }
 `
 
-export default function Header({ invoices, filter, setFilter }) {
+export default function Header({ invoices, filter, setFilter, setCreateInvoiceIsOpen }) {
     const message = invoicesMessage(invoices && invoices.length, filter)
 
     return (
@@ -59,7 +59,7 @@ export default function Header({ invoices, filter, setFilter }) {
                 <Subheading>{message}</Subheading>
             </TextWrapper>
             <Dropdown setFilter={setFilter}/>
-            <Button>New <span className="btn-plus-invoice">Invoice</span></Button>
+            <Button onClick={() => setCreateInvoiceIsOpen(true)}>New <span className="btn-plus-invoice">Invoice</span></Button>
         </Wrapper>
     )
 }

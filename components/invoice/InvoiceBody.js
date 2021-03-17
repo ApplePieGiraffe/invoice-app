@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 
 import InvoiceTable from './InvoiceTable'
 import { Heading1, Heading3 } from '../shared/Headings'
-import { TextA, TextB } from '../shared/Typography'
+import { fontStylesA, fontStylesB } from '../shared/Typography'
 
 const Wrapper = styled.section`
     display: grid;
@@ -51,7 +51,7 @@ const Id = styled(Heading1)`
 `
 
 const Description = styled.span`
-    ${TextA}
+    ${fontStylesA}
 `
 
 // sender address
@@ -59,7 +59,7 @@ const Description = styled.span`
 const SenderAddress = styled.div`
     display: flex;
     flex-direction: column;
-    ${TextB}
+    ${fontStylesB}
 
     @media only screen and (min-width: 768px) {
         text-align: end;
@@ -84,7 +84,7 @@ const Date = styled.div`
 
 const DateTitle = styled.span`
     margin-bottom: .25rem;
-    ${TextB}
+    ${fontStylesB}
     font-size: .75rem;
 `
 
@@ -101,7 +101,7 @@ const ClientAddress = styled.div`
     grid-row: 3 / 4;
     display: flex;
     flex-direction: column;
-    ${TextB}
+    ${fontStylesB}
 
     & *:nth-child(1) {
         margin-bottom: .5rem;
@@ -128,7 +128,7 @@ const Email = styled.div`
 
 const EmailTitle = styled.span`
     margin-bottom: .25rem;
-    ${TextB}
+    ${fontStylesB}
     font-size: .75rem;
 `
 

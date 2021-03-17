@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TextB } from '../shared/Typography'
+import { fontStylesB } from '../shared/Typography'
 import { addCommas } from '../../utilities/Misc'
 
 const Wrapper = styled.div`
@@ -20,7 +20,7 @@ const Table = styled.table`
 
 const TableHead = styled.thead`
     display: none;
-    ${TextB}
+    ${fontStylesB}
 
     th {
         padding: 0 0 2rem 0;
@@ -64,7 +64,7 @@ const ItemName = styled.td`
 
 const ItemQuantity = styled.td`
     display: none;
-    ${TextB}
+    ${fontStylesB}
     text-align: center;
 
     @media only screen and (min-width: 550px) {
@@ -75,7 +75,7 @@ const ItemQuantity = styled.td`
 
 const ItemPrice = styled.td`
     display: none;
-    ${TextB}
+    ${fontStylesB}
     text-align: end;
 
     @media only screen and (min-width: 550px) {

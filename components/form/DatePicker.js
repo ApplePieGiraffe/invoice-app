@@ -4,12 +4,12 @@ import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import styled from 'styled-components'
 
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 
 const Wrapper = styled.div`
     display: grid;
     grid-template-columns: max-content 1fr;
-    ${TextA}
+    ${fontStylesA}
 
     .react-datepicker-wrapper {
         grid-column: 1 / -1;
@@ -36,7 +36,7 @@ const Button = styled.button`
     padding: 1rem 1.25rem;
     background: ${props => props.theme.color.form.fieldBg};
 
-    ${TextA}
+    ${fontStylesA}
     color: ${props => props.theme.color.text.heading};
     font-weight: bold;
 

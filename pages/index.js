@@ -9,9 +9,10 @@ import InvoicesList from '../components/home/InvoicesList'
 
 import CreateInvoice from '../components/form/CreateInvoice'
 
-export default function Home({ invoices }) {
+export default function Home({ invoices, setInvoices }) {
 	const [filter, setFilter] = useState(null)
 	const [filteredInvoices, setFilteredInvoices] = useState(null)
+	const [createInvoiceIsOpen, setCreateInvoiceIsOpen] = useState(false)
 	
 	useEffect(() => {
 		setFilteredInvoices(invoices)
@@ -29,9 +30,20 @@ export default function Home({ invoices }) {
 				<title>Invoices {filteredInvoices && filteredInvoices.length !== 0 && `(${filteredInvoices.length})` || ''} | Frontend Mentor</title>
 			</Head>
 			<HomeMain>
-				{/* <CreateInvoice/> */}
+				{createInvoiceIsOpen && 
+					<CreateInvoice 
+						invoices={invoices} 
+						setInvoices={setInvoices}
+						setCreateInvoiceIsOpen={setCreateInvoiceIsOpen}
+					/>
+				}
 				<Wrapper>
-					<Header invoices={filteredInvoices} filter={filter} setFilter={setFilter}/>
+					<Header 
+						invoices={filteredInvoices} 
+						filter={filter} 
+						setFilter={setFilter}
+						setCreateInvoiceIsOpen={setCreateInvoiceIsOpen}
+					/>
 					{filteredInvoices && filteredInvoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={filteredInvoices}/>}
 				</Wrapper>
 			</HomeMain>

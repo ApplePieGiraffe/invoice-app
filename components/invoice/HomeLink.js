@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 
-// import Wrapper from './Wrapper'
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 
 const Wrapper = styled.a`
     dispay: flex;
@@ -19,7 +18,7 @@ const Wrapper = styled.a`
     }
 
     span {
-        ${TextA}
+        ${fontStylesA}
         color: ${props => props.theme.color.text.link};
     }
 `

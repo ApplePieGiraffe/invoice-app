@@ -5,7 +5,7 @@ const baseStyles = css`
     transition: color .3s;
 `
 
-export const TextA = css`
+export const fontStylesA = css`
     ${baseStyles}
     color: ${props => props.color || props.theme.color.text.bodyA};
     font-size: ${props => props.size || '.75rem'};
@@ -13,7 +13,7 @@ export const TextA = css`
     letter-spacing: -.25px;
 `
 
-export const TextB = css`
+export const fontStylesB = css`
     ${baseStyles}
     color: ${props => props.color || props.theme.color.text.bodyA};
     font-size: ${props => props.size || '.6875rem'};

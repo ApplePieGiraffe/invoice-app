@@ -3,7 +3,7 @@ import ScrollLock from 'react-scrolllock'
 
 import Button from '../shared/Buttons'
 import { Heading2 } from '../shared/Headings'
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 
 const Backdrop = styled.div`
     position: fixed;
@@ -44,7 +44,7 @@ const Heading = styled(Heading2)`
 
 const Message = styled.p`
     margin-bottom: 1.5rem;
-    ${TextA}
+    ${fontStylesA}
     line-height: 1.375rem;
 
     @media only screen and (min-width: 768px) {

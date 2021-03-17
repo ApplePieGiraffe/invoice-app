@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 
 const StyledOption = styled.label`
     display: flex;
@@ -24,7 +24,7 @@ const StyledOption = styled.label`
     }
 
     span {
-        ${TextA}
+        ${fontStylesA}
         color: ${props => props.theme.color.text.heading};
         font-weight: bold;
         text-transform: capitalize;

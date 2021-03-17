@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { TextA } from './Typography'
+import { fontStylesA } from './Typography'
 
 const Wrapper = styled.div`
     display: flex;
@@ -28,7 +28,7 @@ const Circle = styled.div`
 `
 
 const Text = styled.div`
-    ${TextA}
+    ${fontStylesA}
     color: ${props => {
         if (props.status === 'paid') return '#33D69F'
         if (props.status === 'pending') return '#FF8F00'

@@ -1,13 +1,13 @@
 import { Field, useField } from 'formik'
 import styled from 'styled-components'
 
-import { TextA } from '../shared/Typography'
+import { fontStylesA } from '../shared/Typography'
 
 const Wrapper = styled.div`
     display: grid;
     grid-template-columns: max-content 1fr;
     grid-row-gap: .625rem;
-    ${TextA}
+    ${fontStylesA}
 `
 
 const Label = styled.label`
@@ -37,7 +37,7 @@ const StyledSelect = styled.select`
     background: ${props => props.theme.color.form.fieldBg};
     appearance: none;
     outline: none;
-    ${TextA}
+    ${fontStylesA}
     color: ${props => props.theme.color.text.heading};
     font-weight: bold;
     cursor: pointer;
