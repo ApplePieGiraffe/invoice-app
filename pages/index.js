@@ -9,6 +9,8 @@ import InvoicesList from '../components/home/InvoicesList'
 
 import CreateInvoice from '../components/form/CreateInvoice'
 
+import CreateInvoiceForm from '../components/form/CreateInvoiceForm'
+
 export default function Home({ invoices, setInvoices }) {
 	const [filter, setFilter] = useState(null)
 	const [filteredInvoices, setFilteredInvoices] = useState(null)
@@ -31,10 +33,15 @@ export default function Home({ invoices, setInvoices }) {
 			</Head>
 			<HomeMain>
 				{createInvoiceIsOpen && 
-					<CreateInvoice 
+					// <CreateInvoice 
+					// 	invoices={invoices} 
+					// 	setInvoices={setInvoices}
+					// 	setCreateInvoiceIsOpen={setCreateInvoiceIsOpen}
+					// />
+					<CreateInvoiceForm 
 						invoices={invoices} 
 						setInvoices={setInvoices}
-						setCreateInvoiceIsOpen={setCreateInvoiceIsOpen}
+						setOpen={setCreateInvoiceIsOpen}
 					/>
 				}
 				<Wrapper>
