@@ -7,8 +7,6 @@ import Header from '../components/home/Header'
 import NoInvoices from '../components/home/NoInvoices'
 import InvoicesList from '../components/home/InvoicesList'
 
-import CreateInvoice from '../components/form/CreateInvoice'
-
 import CreateInvoiceForm from '../components/form/CreateInvoiceForm'
 
 export default function Home({ invoices, setInvoices }) {
@@ -33,11 +31,6 @@ export default function Home({ invoices, setInvoices }) {
 			</Head>
 			<HomeMain>
 				{createInvoiceIsOpen && 
-					// <CreateInvoice 
-					// 	invoices={invoices} 
-					// 	setInvoices={setInvoices}
-					// 	setCreateInvoiceIsOpen={setCreateInvoiceIsOpen}
-					// />
 					<CreateInvoiceForm 
 						invoices={invoices} 
 						setInvoices={setInvoices}

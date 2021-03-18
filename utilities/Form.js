@@ -1,3 +1,7 @@
+import dayjs from 'dayjs'
+
+import { generateUniqueId } from './Id'
+
 export function reduceErrors(errors) {
     const messages = []
     for (const key in errors) {
@@ -21,4 +25,14 @@ export function calcTotal(items) {
         total += item.total
     }
     return total
+}
+
+export function createNewInvoice(status, values, invoices) {
+    return ({
+        id: generateUniqueId(invoices),
+        ...values,
+        paymentDue: dayjs(values.createdAt).add(Number(values.paymentTerms), 'day'),
+        status,
+        total: calcTotal(values.items)
+    })
 }
