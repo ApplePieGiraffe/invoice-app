@@ -4,7 +4,6 @@ import Form from './Form'
 
 import { calcTotal } from '../../utilities/Form'
 import { addInvoice } from '../../utilities/Invoices'
-import { emptyInvoice } from '../../utilities/Invoices'
 import { generateUniqueId } from '../../utilities/Id'
 
 import { initialValues } from '../../data/Form'
@@ -70,7 +69,7 @@ export default function CreateInvoice({ invoices, setInvoices, setCreateInvoiceI
             {
                 (formik) => {
                     return (
-                        <Form type="create" formik={formik} addDraft={() => addDraft(formik.values)} setCreateInvoiceIsOpen={setCreateInvoiceIsOpen}/>
+                        <Form type="create" addDraft={() => addDraft(formik.values)} setCreateInvoiceIsOpen={setCreateInvoiceIsOpen}/>
                     )
                 }
             }
