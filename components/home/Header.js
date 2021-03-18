@@ -49,7 +49,7 @@ const Button = styled(ButtonPlus)`
     }
 `
 
-export default function Header({ invoices, filter, setFilter, setCreateInvoiceIsOpen }) {
+export default function Header({ invoices, filter, setFilter, setFormIsOpen }) {
     const message = invoicesMessage(invoices && invoices.length, filter)
 
     return (
@@ -59,7 +59,7 @@ export default function Header({ invoices, filter, setFilter, setCreateInvoiceIs
                 <Subheading>{message}</Subheading>
             </TextWrapper>
             <Dropdown setFilter={setFilter}/>
-            <Button onClick={() => setCreateInvoiceIsOpen(true)}>New <span className="btn-plus-invoice">Invoice</span></Button>
+            <Button onClick={() => setFormIsOpen(true)}>New <span className="btn-plus-invoice">Invoice</span></Button>
         </Wrapper>
     )
 }

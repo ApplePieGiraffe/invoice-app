@@ -12,7 +12,7 @@ import CreateInvoiceForm from '../components/form/CreateInvoiceForm'
 export default function Home({ invoices, setInvoices }) {
 	const [filter, setFilter] = useState(null)
 	const [filteredInvoices, setFilteredInvoices] = useState(null)
-	const [createInvoiceIsOpen, setCreateInvoiceIsOpen] = useState(false)
+	const [formIsOpen, setFormIsOpen] = useState(false)
 	
 	useEffect(() => {
 		setFilteredInvoices(invoices)
@@ -30,11 +30,11 @@ export default function Home({ invoices, setInvoices }) {
 				<title>Invoices {filteredInvoices && filteredInvoices.length !== 0 && `(${filteredInvoices.length})` || ''} | Frontend Mentor</title>
 			</Head>
 			<HomeMain>
-				{createInvoiceIsOpen && 
+				{formIsOpen && 
 					<CreateInvoiceForm 
 						invoices={invoices} 
 						setInvoices={setInvoices}
-						setOpen={setCreateInvoiceIsOpen}
+						setOpen={setFormIsOpen}
 					/>
 				}
 				<Wrapper>
@@ -42,7 +42,7 @@ export default function Home({ invoices, setInvoices }) {
 						invoices={filteredInvoices} 
 						filter={filter} 
 						setFilter={setFilter}
-						setCreateInvoiceIsOpen={setCreateInvoiceIsOpen}
+						setFormIsOpen={setFormIsOpen}
 					/>
 					{filteredInvoices && filteredInvoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={filteredInvoices}/>}
 				</Wrapper>

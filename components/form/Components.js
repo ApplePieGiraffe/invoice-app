@@ -2,19 +2,23 @@ import styled from 'styled-components'
 
 import { Heading2 } from '../shared/Headings'
 
-export const CreateInvoiceFormHeading = styled(Heading2)`
+const Heading = styled(Heading2)`
     margin-bottom: 3rem;
     font-size: 1.5rem;
 `
 
-export const CreateInvoiceFormButtons = styled.div`
+export const CreateInvoiceFormHeading = styled(Heading)``
+
+export const EditInvoiceFormHeading = styled(Heading)`
+    span {
+        color: #888EB0;
+    }
+`
+
+const Buttons = styled.div`
     display: flex;
     gap: .5rem;
     padding 2rem 0;
-
-    > *:first-child {
-        margin-right: auto;
-    }
 
     > button {
         padding: 1rem;
@@ -25,4 +29,14 @@ export const CreateInvoiceFormButtons = styled.div`
             padding: 1rem 1.5rem;
         }
     }
+`
+
+export const CreateInvoiceFormButtons = styled(Buttons)`
+    > *:first-child {
+        margin-right: auto;
+    }
+`
+
+export const EditInvoiceFormButtons = styled(Buttons)`
+    justify-content: flex-end;
 `

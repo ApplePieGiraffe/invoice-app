@@ -1,30 +1,5 @@
 import Store from 'store'
 
-// export const emptyInvoice = {
-// 	id: '',
-// 	createdAt: '',
-// 	paymentDue: '',
-// 	description: '',
-// 	paymentTerms: null,
-// 	clientName: '',
-// 	clientEmail: '',
-// 	status: '',
-// 	senderAddress: {
-// 		street: '',
-// 		city: '',
-// 		postCode: '',
-// 		country: ''
-// 	},
-// 	clientAddress: {
-// 		street: '',
-// 		city: '',
-// 		postCode: '',
-// 		country: ''
-// 	},
-// 	items: [],
-// 	total: null
-// }
-
 export function addInvoice(invoice, invoices, setInvoices) {
 	const newInvoices = [invoice, ...invoices]
 	setInvoices(newInvoices)
