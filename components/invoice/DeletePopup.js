@@ -58,7 +58,7 @@ const Buttons = styled.div`
     gap: .5rem;
 `
 
-export default function DeletePopup({ id, handleCancel, handleDelete }) {
+export default function DeletePopup({ id, setPopupIsOpen, handleDelete }) {
     return (
         <ScrollLock>
             <Backdrop>
@@ -66,7 +66,7 @@ export default function DeletePopup({ id, handleCancel, handleDelete }) {
                     <Heading>Confirm Deletion</Heading>
                     <Message>Are you sure you want to delete invoice {id}? This action cannot be undone.</Message>
                     <Buttons>
-                        <Button secondary onClick={handleCancel}>Cancel</Button>
+                        <Button secondary onClick={() => setPopupIsOpen(false)}>Cancel</Button>
                         <Button alert onClick={() => handleDelete(id)}>Delete</Button>
                     </Buttons>
                 </Popup>

@@ -1,4 +1,5 @@
 import { Formik } from 'formik'
+import dayjs from 'dayjs'
 
 import Form from './Form'
 import Fields from './Fields'
@@ -10,18 +11,28 @@ import {
 
 import { validationSchema } from '../../data/Form'
 
-import { createNewInvoice } from '../../utilities/Form'
+import { createInvoice } from '../../utilities/Form'
 import { updateInvoice } from '../../utilities/Invoices'
 
-export default function CreateInvoiceForm({ invoice, invoices, setInvoices, setOpen }) {
+export default function EditInvoiceForm({ invoice, invoices, setInvoices, setOpen }) {    
     function onSubmit(values) {
-        // ...
+        const newInvoice = {...createInvoice(invoice.status, values), id: invoice.id}
+        updateInvoice(newInvoice, invoices, setInvoices)
         setOpen(false)
     }
 
     return (
         <Formik 
-            initialValues={initialValues} 
+            initialValues={{
+                senderAddress: invoice.senderAddress,
+                clientName: invoice.clientName,
+                clientEmail: invoice.clientEmail,
+                clientAddress: invoice.clientAddress,
+                createdAt: new Date(invoice.createdAt),
+                paymentTerms: invoice.paymentTerms,
+                description: invoice.description,
+                items: invoice.items
+            }} 
             validationSchema={validationSchema} 
             onSubmit={onSubmit}
         >

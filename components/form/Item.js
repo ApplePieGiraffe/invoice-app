@@ -57,7 +57,6 @@ export default function Item({ index, helpers }) {
     const { values, setFieldValue } = useFormikContext()
 
     useEffect(() => {
-        console.log('render')
         const total = values.items[index].quantity * values.items[index].price
         setFieldValue(`items[${index}].total`, total || '0')
     }, [values.items[index].quantity, values.items[index].price])

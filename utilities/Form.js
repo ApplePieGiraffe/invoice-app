@@ -27,11 +27,11 @@ export function calcTotal(items) {
     return total
 }
 
-export function createNewInvoice(status, values, invoices) {
+export function createInvoice(status, values) {
     return ({
-        id: generateUniqueId(invoices),
         ...values,
-        paymentDue: dayjs(values.createdAt).add(Number(values.paymentTerms), 'day'),
+        createdAt: dayjs(values.createdAt).format('YYYY-MM-DD'),
+        paymentDue: dayjs(values.createdAt).add(Number(values.paymentTerms), 'day').format('YYYY-MM-DD'),
         status,
         total: calcTotal(values.items)
     })

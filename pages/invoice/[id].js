@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import Wrapper from '../../components/invoice/Wrapper'
+import EditInvoiceForm from '../../components/form/EditInvoiceForm'
 import DeletePopup from '../../components/invoice/DeletePopup'
 import HomeLink from '../../components/invoice/HomeLink'
 import InvoiceHeader from '../../components/invoice/InvoiceHeader'
@@ -16,15 +17,12 @@ export default function Invoice({ invoices, setInvoices, handleDelete }) {
     const [id, setId] = useState(null)
     const [invoice, setInvoice] = useState(null)
     const [popupIsOpen, setPopupIsOpen] = useState(false)
+    const [formIsOpen, setFormIsOpen] = useState(false)
 
     useEffect(() => {
         setId(router.query.id)
         setInvoice(invoices && invoices.find(invoice => router.query.id === invoice.id))
     }, [router.query, invoices])
-
-    function handleCancel() {
-        setPopupIsOpen(false)
-    }
 
     function handlePaid() {
         markAsPaid(id, invoices, setInvoices)
@@ -35,19 +33,29 @@ export default function Invoice({ invoices, setInvoices, handleDelete }) {
             <Head>
                 <title>Invoice | {id && `#${id}`}</title>
             </Head>
-            {popupIsOpen && <DeletePopup id={id} handleCancel={handleCancel} handleDelete={handleDelete}/>}
+            {popupIsOpen && <DeletePopup id={id} setPopupIsOpen={setPopupIsOpen} handleDelete={handleDelete}/>}
+            {formIsOpen && 
+                <EditInvoiceForm
+                    invoice={invoice}
+                    invoices={invoices} 
+                    setInvoices={setInvoices}
+                    setOpen={setFormIsOpen}
+                />
+            }
             <Wrapper>
                 <HomeLink/>
                 <InvoiceHeader 
                     className="invoice-page-header" 
                     status={invoice && invoice.status} 
                     setPopupIsOpen={setPopupIsOpen}
+                    setFormIsOpen={setFormIsOpen}
                     handlePaid={handlePaid}
                 />
                 {invoice && <InvoiceBody invoice={invoice}/>}
             </Wrapper>
             <InvoiceFooter 
                 setPopupIsOpen={setPopupIsOpen}
+                setFormIsOpen={setFormIsOpen}
                 handlePaid={handlePaid}
             />
         </>

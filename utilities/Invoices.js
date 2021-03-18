@@ -14,8 +14,13 @@ export function deleteInvoice(id, invoices, setInvoices) {
 	Store.set('invoices', newInvoices)
 }
 
-export function updateInvoice(invoice, invoices, setInvoices) {
-	const newInvoices = null
+export function updateInvoice(newInvoice, invoices, setInvoices) {
+	const newInvoices = invoices.map((invoice) => {
+		if (newInvoice.id === invoice.id) {
+			return newInvoice
+		}
+		return invoice
+	})
 	setInvoices(newInvoices)
 	Store.set('invoices', newInvoices)
 }

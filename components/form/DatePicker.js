@@ -50,7 +50,7 @@ const Button = styled.button`
 `
 
 export default function DatePicker({ label, name }) {
-    const { setFieldTouched, setFieldValue } = useFormikContext()
+    const { setFieldValue } = useFormikContext()
     const [field, meta] = useField(name)
 
     const CustomInput = forwardRef(

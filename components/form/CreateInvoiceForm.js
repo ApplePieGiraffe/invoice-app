@@ -10,18 +10,19 @@ import {
 
 import { initialValues, validationSchema } from '../../data/Form'
 
-import { createNewInvoice } from '../../utilities/Form'
+import { createInvoice } from '../../utilities/Form'
+import { generateUniqueId } from '../../utilities/Id'
 import { addInvoice } from '../../utilities/Invoices'
 
 export default function CreateInvoiceForm({ invoices, setInvoices, setOpen }) {
     function onSubmit(values) {
-        const newInvoice = createNewInvoice('pending', values, invoices)
+        const newInvoice = {...createInvoice('pending', values), id: generateUniqueId(invoices)}
         addInvoice(newInvoice, invoices, setInvoices)
         setOpen(false)
     }
 
     function addDraft(values) {
-        const newInvoice = createNewInvoice('draft', values, invoices)
+        const newInvoice = {...createInvoice('draft', values), id: generateUniqueId(invoices)}
         addInvoice(newInvoice, invoices, setInvoices)
         setOpen(false)
     }
