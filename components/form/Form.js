@@ -11,6 +11,8 @@ import Select from './Select'
 import { Heading2 } from '../shared/Headings'
 import { fontStylesA } from '../shared/Typography'
 
+import { reduceErrors } from '../../utilities/Form'
+
 const Wrapper = styled.div`
     position: absolute;
     top: 5rem;
@@ -61,6 +63,7 @@ const Fields = styled.div`
     flex-direction: column;
     gap: 2.5rem;
     padding-right: 2rem;
+    padding-bottom: 1rem;
     overflow-y: scroll;
 
     scrollbar-width: thin;
@@ -168,24 +171,45 @@ const OtherFields = styled.div`
     }
 `
 
+const Errors = styled.div`
+    margin-top: -1rem;
+`
+
+const Error = styled.div`
+    color: #EC5757;
+    font-size: .625rem;
+    font-weight: bold;
+    line-height: 1rem;
+`
+
 const Buttons = styled.div`
     display: flex;
     padding: 2rem 0;
     gap: .5rem;
 
+    button {
+        padding: 1rem;
+    }
+
     button:nth-child(1) {
         margin-right: auto;
+    }
+
+    @media only screen and (min-width: 500px) {
+        button {
+            padding: 1rem 1.5rem;
+        }
     }
 `
 
 const dropdownOptions = [
     {name: 'Net 1 Day', value: 1},
-    {name: 'Net 7 Days', value: 2},
-    {name: 'Net 14 Days', value: 3},
-    {name: 'Net 30 Days', value: 4}
+    {name: 'Net 7 Days', value: 7},
+    {name: 'Net 14 Days', value: 14},
+    {name: 'Net 30 Days', value: 30}
 ]
 
-export default function Form({ type, id, setCreateInvoiceIsOpen }) {
+export default function Form({ type, formik, id, setCreateInvoiceIsOpen, addDraft }) {
     return (
         <Backdrop>
             <Wrapper>
@@ -225,12 +249,20 @@ export default function Form({ type, id, setCreateInvoiceIsOpen }) {
                         </FieldSet>
 
                         <Items name="items"/>
+
+                        {formik.submitCount > 0 && formik.errors && 
+                            <Errors>
+                                {reduceErrors(formik.errors).map((item, index) => (
+                                    <Error key={index}>{item}</Error>
+                                ))}
+                            </Errors>
+                        }
                     </Fields>
 
                     <Buttons>
                         <Button type="button" secondary onClick={() => setCreateInvoiceIsOpen(false)}>Discard</Button>
-                        <Button type="button" tertiary>Save as Draft</Button>
-                        <Button type="submit">Save and Send</Button>
+                        <Button type="button" tertiary onClick={addDraft}>Save as Draft</Button>
+                        <Button type="submit">Save & Send</Button>
                     </Buttons>
                 </StyledForm>
             </Wrapper>

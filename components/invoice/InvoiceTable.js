@@ -143,15 +143,15 @@ export default function InvoiceTable({ className, items, total }) {
                             <tr key={item.name}>
                                 <ItemName>{item.name}</ItemName>
                                 <ItemQuantity>{item.quantity}</ItemQuantity>
-                                <ItemPrice>{addCommas(item.price)}</ItemPrice>
-                                <ItemTotal>{addCommas(item.total)}</ItemTotal>
+                                <ItemPrice>{`£${addCommas(item.price)}`}</ItemPrice>
+                                <ItemTotal>{`£${addCommas(item.total)}`}</ItemTotal>
                             </tr>
                         )
                     })}
                 </TableBody>
                 <TableFooter>
                     <tr>
-                        <Amount>Amount</Amount>
+                        <Amount>Amount Due</Amount>
                         <EmptyTd></EmptyTd>
                         <EmptyTd></EmptyTd>
                         <Total>{total ? `£${addCommas(total)}` : '-'}</Total>

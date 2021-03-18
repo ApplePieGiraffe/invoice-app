@@ -4,14 +4,13 @@ import styled from 'styled-components'
 import { fontStylesA } from '../shared/Typography'
 
 const Wrapper = styled.div`
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    grid-row-gap: .625rem;
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
     ${fontStylesA}
 `
 
 const Label = styled.label`
-    grid-column: 1 / 2;
     color: ${props => props.theme.color.text.formLabel};
     transition: color .3s;
 `
