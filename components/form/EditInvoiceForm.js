@@ -16,7 +16,7 @@ import { updateInvoice } from '../../utilities/Invoices'
 
 export default function EditInvoiceForm({ invoice, invoices, setInvoices, isOpen, setIsOpen }) {    
     function onSubmit(values) {
-        const newInvoice = {...createInvoice(invoice.status, values), id: invoice.id}
+        const newInvoice = {...createInvoice(invoice.status === 'draft' ? 'pending' : invoice.status, values), id: invoice.id}
         updateInvoice(newInvoice, invoices, setInvoices)
         setIsOpen(false)
     }
