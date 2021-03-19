@@ -39,14 +39,13 @@ export default function Invoice({ invoices, setInvoices, handleDelete }) {
                 setPopupIsOpen={setPopupIsOpen} 
                 handleDelete={handleDelete}
             />
-            {formIsOpen && 
-                <EditInvoiceForm
-                    invoice={invoice}
-                    invoices={invoices} 
-                    setInvoices={setInvoices}
-                    setOpen={setFormIsOpen}
-                />
-            }
+            <EditInvoiceForm
+                invoice={invoice}
+                invoices={invoices} 
+                setInvoices={setInvoices}
+                isOpen={formIsOpen}
+                setIsOpen={setFormIsOpen}
+            />
             <Wrapper>
                 <HomeLink/>
                 <InvoiceHeader 

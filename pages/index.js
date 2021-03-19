@@ -30,13 +30,12 @@ export default function Home({ invoices, setInvoices }) {
 				<title>Invoices {filteredInvoices && filteredInvoices.length !== 0 && `(${filteredInvoices.length})` || ''} | Frontend Mentor</title>
 			</Head>
 			<HomeMain>
-				{formIsOpen && 
-					<CreateInvoiceForm 
-						invoices={invoices} 
-						setInvoices={setInvoices}
-						setOpen={setFormIsOpen}
-					/>
-				}
+				<CreateInvoiceForm 
+					invoices={invoices} 
+					setInvoices={setInvoices}
+					isOpen={formIsOpen}
+					setIsOpen={setFormIsOpen}
+				/>
 				<Wrapper>
 					<Header 
 						invoices={filteredInvoices} 

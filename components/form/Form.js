@@ -60,6 +60,7 @@ export default function Form({ children }) {
                 variants={animation}
                 initial="hidden"
                 animate="visible"
+                exit="hidden"
             >
                 <StyledForm>
                     {children}

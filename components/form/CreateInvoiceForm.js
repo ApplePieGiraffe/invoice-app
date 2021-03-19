@@ -15,38 +15,40 @@ import { createInvoice } from '../../utilities/Form'
 import { generateUniqueId } from '../../utilities/Id'
 import { addInvoice } from '../../utilities/Invoices'
 
-export default function CreateInvoiceForm({ invoices, setInvoices, setOpen }) {
+export default function CreateInvoiceForm({ invoices, setInvoices, isOpen, setIsOpen }) {
     function onSubmit(values) {
         const newInvoice = {...createInvoice('pending', values), id: generateUniqueId(invoices)}
         addInvoice(newInvoice, invoices, setInvoices)
-        setOpen(false)
+        setIsOpen(false)
     }
 
     function addDraft(values) {
         const newInvoice = {...createInvoice('draft', values), id: generateUniqueId(invoices)}
         addInvoice(newInvoice, invoices, setInvoices)
-        setOpen(false)
+        setIsOpen(false)
     }
 
     return (
         <AnimatePresence>
-            <Formik 
+            {isOpen &&
+                <Formik 
                 initialValues={initialValues} 
                 validationSchema={validationSchema} 
                 onSubmit={onSubmit}
-            >
-                {formik => (
-                    <Form>
-                        <Heading>Create Invoice</Heading>
-                        <Fields/>
-                        <Buttons>
-                            <Button type="button" secondary onClick={() => setOpen(false)}>Discard</Button>
-                            <Button type="button" tertiary onClick={() => addDraft(formik.values)}>Save as Draft</Button>
-                            <Button type="submit">Save & Send</Button>
-                        </Buttons>
-                    </Form>
-                )}
-            </Formik>
+                >
+                    {formik => (
+                        <Form>
+                            <Heading>Create Invoice</Heading>
+                            <Fields/>
+                            <Buttons>
+                                <Button type="button" secondary onClick={() => setIsOpen(false)}>Discard</Button>
+                                <Button type="button" tertiary onClick={() => addDraft(formik.values)}>Save as Draft</Button>
+                                <Button type="submit">Save & Send</Button>
+                            </Buttons>
+                        </Form>
+                    )}
+                </Formik>
+            }
         </AnimatePresence>
     )
 }

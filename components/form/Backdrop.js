@@ -30,6 +30,7 @@ export default function Backdrop({ children }) {
                 variants={animation}
                 initial="hidden"
                 animate="visible"
+                exit="hidden"
             >
                 {children}
             </StyledBackdrop>
