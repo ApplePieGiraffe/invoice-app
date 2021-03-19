@@ -17,11 +17,11 @@ const Wrapper = styled.div`
 `
 
 export default function Layout({ children }) {
-    const [theme, setTheme] = useState('light')
+    const [theme, setTheme] = useState('dark')
 
 	useEffect(() => {
 		if (Store.get('theme') === undefined) {
-			Store.set('theme', 'light')
+			Store.set('theme', 'dark')
 		}
 		setTheme(Store.get('theme'))
 	}, [setTheme])

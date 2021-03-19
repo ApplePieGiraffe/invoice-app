@@ -37,7 +37,7 @@ const Heading = styled(Heading4)`
     }
 `
 
-const Options = styled('form')`
+const Options = styled.div`
     position: absolute;
     bottom: -9rem;
     left: 50%;
