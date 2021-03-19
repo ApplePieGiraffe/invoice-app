@@ -58,7 +58,8 @@ export default function Item({ index, helpers }) {
 
     useEffect(() => {
         const total = values.items[index].quantity * values.items[index].price
-        setFieldValue(`items[${index}].total`, total || '0')
+        const rounded = Math.round((total + Number.EPSILON) * 100) / 100
+        setFieldValue(`items[${index}].total`, rounded || '0')
     }, [values.items[index].quantity, values.items[index].price])
 
     return (

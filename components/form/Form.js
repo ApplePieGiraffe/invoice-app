@@ -27,7 +27,7 @@ const StyledForm = styled(FormikForm)`
     height: calc(100vh - 5rem);
     width: 100vw;
     max-width: 40rem;
-    padding: 2rem 1.5rem 0 1.5rem;
+    padding: 2rem 1rem 0 1.5rem;
 
     @media only screen and (min-width: 500px) {
         padding: 2.5rem 2rem 0 2.5rem;

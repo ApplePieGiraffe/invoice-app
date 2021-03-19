@@ -7,10 +7,15 @@ const Wrapper = styled.a`
     dispay: flex;
     align-items: center;
     margin-bottom: 2rem;
+    text-decoration: none;
     cursor: pointer;
 
     :hover span {
         color: ${props => props.theme.color.text.linkHover};
+    }
+
+    :focus-visible {
+        outline: 2px dotted #7C5DFA;
     }
 
     img {
@@ -25,7 +30,7 @@ const Wrapper = styled.a`
 
 export default function HomeLink({ className }) {
     return (
-        <Link href="/">
+        <Link href="/" passHref={true}>
             <Wrapper className={className}>
                 <img src="/images/icon-arrow-left.svg" alt=""/>
                 <span>Go back</span>

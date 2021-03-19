@@ -15,9 +15,13 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
-    padding-right: 2rem;
+    padding-right: 1.5rem;
     padding-bottom: 1rem;
     overflow-y: scroll;
+
+    @media only screen and (min-width: 500px) {
+        padding-right: 2rem;
+    } 
 `
 
 const FieldSet = styled.fieldset`

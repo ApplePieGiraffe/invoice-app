@@ -7,6 +7,10 @@ const Button = styled.button`
     background: transparent;
     cursor: pointer;
     outline: none;
+
+    :focus-visible {
+        outline: 2px dotted #7E88C3;
+    }
 `
 
 const Icon = styled.img`

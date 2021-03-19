@@ -23,6 +23,10 @@ const Button = styled.button`
         background: #9277FF;
     }
 
+    :focus-visible {
+        outline: 2px dotted #7E88C3;
+    }
+
     ${props => props.secondary && css`
         background: ${props.theme.color.btn.secondary.bg};
         color: ${props.theme.color.btn.secondary.text};

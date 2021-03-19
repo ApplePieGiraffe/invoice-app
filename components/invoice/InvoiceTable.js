@@ -154,7 +154,7 @@ export default function InvoiceTable({ className, items, total }) {
                         <Amount>Amount Due</Amount>
                         <EmptyTd></EmptyTd>
                         <EmptyTd></EmptyTd>
-                        <Total>{total ? `£${addCommas(total)}` : '-'}</Total>
+                        <Total>{total ? `£${addCommas(total)}` : ''}</Total>
                     </tr>
                 </TableFooter>
             </Table>

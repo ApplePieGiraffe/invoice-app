@@ -18,11 +18,16 @@ const StyledLink = styled.a`
     padding: 1rem 1.5rem;
     background: ${props => props.theme.color.invoiceItem.bg};
     
+    text-decoration: none;
     transition: border .3s, background .3s;
     cursor: pointer;
 
     :hover {
         border-color: #7C5DFA;
+    }
+
+    :focus-visible {
+        outline: 2px dotted #7C5DFA;
     }
 
     @media only screen and (min-width: 768px) {
@@ -105,12 +110,12 @@ const Arrow = styled.img`
 
 export default function InvoiceItem({ id, paymentDue, clientName, total, status }) {
     return (
-        <Link href={`/invoice/${id}`}>
+        <Link href={`/invoice/${id}`} passHref={true}>
             <StyledLink>
                 <Id><span>#</span>{id}</Id>
                 <PaymentDue>Due {dayjs(paymentDue).format('DD MMM YYYY')}</PaymentDue>
                 <ClientName>{clientName}</ClientName>
-                <Total as="div">{total ? `£${addCommas(total)}` : '-'}</Total>
+                <Total as="div">{total ? `£${addCommas(total)}` : ''}</Total>
                 <StyledInvoiceStatus status={status}/>
                 <Arrow src="/images/icon-arrow-right.svg" alt=""/>
             </StyledLink>

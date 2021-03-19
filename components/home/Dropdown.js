@@ -15,6 +15,10 @@ const Header = styled.button`
     img {
         transition: transform .3s;
     }
+
+    :focus-visible {
+        outline: 2px dotted #7C5DFA;
+    }
 `
 
 const Heading = styled(Heading4)`

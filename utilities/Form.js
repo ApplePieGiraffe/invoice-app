@@ -1,7 +1,5 @@
 import dayjs from 'dayjs'
 
-import { generateUniqueId } from './Id'
-
 export function reduceErrors(errors) {
     const messages = []
     for (const key in errors) {
