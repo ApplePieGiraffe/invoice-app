@@ -4,7 +4,7 @@ import Avatar from '../shared/Avatar'
 import Logo from '../shared/Logo'
 import ThemeToggle from './ThemeToggle'
 
-const Wrapper = styled('sidebar')`
+const Wrapper = styled.aside`
     position: sticky;
     top: 0;
     z-index: 20;

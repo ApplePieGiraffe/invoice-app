@@ -10,11 +10,11 @@ const StyledOption = styled.label`
     input {
         display: none;
 
-        :hover + div {
+        :hover + span {
             border: 1px solid #7C5DFA;
         }
 
-        :checked + div {
+        :checked + span {
             background: #7C5DFA;
 
             > img {
@@ -32,7 +32,7 @@ const StyledOption = styled.label`
     }
     `
 
-const Checkbox = styled.div`
+const Checkbox = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,13 +46,13 @@ const Checkbox = styled.div`
     img {
         opacity: 0;
     }
-    `
+`
 
 export default function DropdownOption({ id, checked, handleClick, children }) {
     return (
         <StyledOption>
             <input type="checkbox" checked={checked} onChange={() => {handleClick(id)}}/>
-            <Checkbox>
+            <Checkbox className="checkbox">
                 <img src="/images/icon-check.svg" alt=""/>
             </Checkbox>
             <span>{children}</span>
