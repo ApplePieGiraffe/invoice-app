@@ -51,7 +51,10 @@ const Button = styled(ButtonPlus)`
 `
 
 const animation = {
-    hidden: { opacity: 0 },
+    hidden: { 
+        opacity: 0,
+        transition: { duration: 1 }
+    },
     visible: { 
         opacity: 1,
         transition: { duration: 1 }

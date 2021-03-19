@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 import Button from '../shared/Buttons'
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -19,7 +20,7 @@ const Wrapper = styled.div`
 
 export default function InvoiceFooter({ setPopupIsOpen, setFormIsOpen, handlePaid }) {
     return (
-        <Wrapper>
+        <Wrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
             <Button secondary onClick={() => setFormIsOpen(true)}>Edit</Button>
             <Button alert onClick={() => setPopupIsOpen(true)}>Delete</Button>
             <Button onClick={handlePaid}>Mark As Paid</Button>
