@@ -33,7 +33,12 @@ export default function Invoice({ invoices, setInvoices, handleDelete }) {
             <Head>
                 <title>Invoice | {id && `#${id}`}</title>
             </Head>
-            {popupIsOpen && <DeletePopup id={id} setPopupIsOpen={setPopupIsOpen} handleDelete={handleDelete}/>}
+            <DeletePopup 
+                id={id} 
+                popupIsOpen={popupIsOpen} 
+                setPopupIsOpen={setPopupIsOpen} 
+                handleDelete={handleDelete}
+            />
             {formIsOpen && 
                 <EditInvoiceForm
                     invoice={invoice}

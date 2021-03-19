@@ -27,7 +27,7 @@ const Wrapper = styled('div')`
     }
 `
 
-const Image = styled.img`
+const Image = styled('img')`
     position: relative;
     z-index: 1;
     width: 31px;

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
+import { motion } from 'framer-motion'
 
 import InvoiceStatus from '../shared/InvoiceStatus'
 import { Heading2 } from '../shared/Headings'
@@ -8,7 +9,7 @@ import { fontStylesA } from '../shared/Typography'
 
 import { addCommas } from '../../utilities/Misc'
 
-const StyledLink = styled.a`
+const StyledLink = styled(motion.a)`
     display: grid;
     grid-template-rows: max-content 1fr;
 
@@ -108,10 +109,20 @@ const Arrow = styled.img`
     }
 `
 
+const animation = {
+    hidden: { opacity: 0 },
+    visible: { 
+        opacity: 1,
+        transition: {
+            duration: .5
+        }
+    }
+}
+
 export default function InvoiceItem({ id, paymentDue, clientName, total, status }) {
     return (
         <Link href={`/invoice/${id}`} passHref={true}>
-            <StyledLink>
+            <StyledLink variants={animation}>
                 <Id><span>#</span>{id}</Id>
                 <PaymentDue>Due {dayjs(paymentDue).format('DD MMM YYYY')}</PaymentDue>
                 <ClientName>{clientName}</ClientName>

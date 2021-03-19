@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import ScrollLock from 'react-scrolllock'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import Button from '../shared/Buttons'
 import { Heading2 } from '../shared/Headings'
 import { fontStylesA } from '../shared/Typography'
 
-const Backdrop = styled.div`
+const Backdrop = styled(motion.div)`
     position: fixed;
     top: 0;
     left: 0;
@@ -18,7 +19,7 @@ const Backdrop = styled.div`
     background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5));
 `
 
-const Popup = styled.div`
+const Popup = styled(motion.div)`
     width: 100%;
     max-width: 24rem;
     margin: 0 1.5rem;
@@ -58,19 +59,52 @@ const Buttons = styled.div`
     gap: .5rem;
 `
 
-export default function DeletePopup({ id, setPopupIsOpen, handleDelete }) {
+const backdropAnimation = {
+    hidden: { opacity: 0 },
+    visible: { 
+        opacity: 1,
+        transition: { duration: .15 }
+    },
+    exit: { 
+        opacity: 0,
+        transition: { duration: .15 }
+    }
+}
+
+const popupAnimation = {
+    hidden: { scale: 0 },
+    visible: { 
+        scale: 1,
+        transition: { type: 'spring', duration: .35 }
+    },
+    exit: { 
+        scale: 0,
+        transition: { duration: .15 }
+    }
+}
+
+export default function DeletePopup({ id, popupIsOpen, setPopupIsOpen, handleDelete }) {
     return (
-        <ScrollLock>
-            <Backdrop>
-                <Popup>
-                    <Heading>Confirm Deletion</Heading>
-                    <Message>Are you sure you want to delete invoice {id}? This action cannot be undone.</Message>
-                    <Buttons>
-                        <Button secondary onClick={() => setPopupIsOpen(false)}>Cancel</Button>
-                        <Button alert onClick={() => handleDelete(id)}>Delete</Button>
-                    </Buttons>
-                </Popup>
-            </Backdrop>
-        </ScrollLock>
+        <AnimatePresence>
+            {popupIsOpen && 
+                <ScrollLock>
+                    <Backdrop
+                        variants={backdropAnimation}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                    >
+                        <Popup variants={popupAnimation}>
+                            <Heading>Confirm Deletion</Heading>
+                            <Message>Are you sure you want to delete invoice {id}? This action cannot be undone.</Message>
+                            <Buttons>
+                                <Button secondary onClick={() => setPopupIsOpen(false)}>Cancel</Button>
+                                <Button alert onClick={() => handleDelete(id)}>Delete</Button>
+                            </Buttons>
+                        </Popup>
+                    </Backdrop>
+                </ScrollLock>
+            }
+        </AnimatePresence>
     )
 }

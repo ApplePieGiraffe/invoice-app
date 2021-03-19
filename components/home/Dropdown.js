@@ -37,7 +37,7 @@ const Heading = styled(Heading4)`
     }
 `
 
-const Options = styled.form`
+const Options = styled('form')`
     position: absolute;
     bottom: -9rem;
     left: 50%;
@@ -58,6 +58,7 @@ const Options = styled.form`
 
 const Wrapper = styled.div`
     position: relative;
+    z-index: 1;
 
     ${Header} {
         img {
@@ -121,7 +122,10 @@ export default function Dropdown({ setFilter }) {
                 <Heading as="span">Filter <span>by status</span></Heading>
                 <img src="/images/icon-arrow-down.svg" alt=""/>
             </Header>
-            <Options id="dropdown-filter-options" aria-labelledby="dropdown-filter-header">
+            <Options 
+                id="dropdown-filter-options" 
+                aria-labelledby="dropdown-filter-header"
+            >
                 {options.map((option) => {
                     return (
                         <DropdownOption key={option.id} id={option.id} checked={option.checked} handleClick={handleClick}>
