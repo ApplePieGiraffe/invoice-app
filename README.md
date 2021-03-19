@@ -1,7 +1,7 @@
-# Frontend Mentor - Invoice app
+# Invoice App - Frontend Mentor
 
 ![Design preview for the Invoice app coding challenge](./public/preview.jpg)
 
-A challenge from Frontend Mentor. 😀
+Thank you for checking out this challenge from Frontend Mentor. 😀 
 
 Coded by me! 😁
