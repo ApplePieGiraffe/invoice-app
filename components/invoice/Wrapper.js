@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const Wrapper = styled.div`
+const StyledWrapper = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -27,4 +28,32 @@ const Wrapper = styled.div`
     }
 `
 
-export default Wrapper
+const animation = {
+    hidden: { 
+        opacity: 0, 
+        x: '50%' 
+    },
+    visible: { 
+        opacity: 1,
+        x: 0,
+        transition: { type: 'tween', ease: 'easeOut', duration: .5 }
+    },
+    exit: {
+        opacity: 0,
+        x: '50%',
+        transition: { type: 'tween', ease: 'easeIn', duration: .5, staggerChildren: 0 }
+    }
+}
+
+export default function Wrapper({ children }) {
+    return (
+        <StyledWrapper
+            variants={animation}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+        >
+            {children}
+        </StyledWrapper>
+    )
+}

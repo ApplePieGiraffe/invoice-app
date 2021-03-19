@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import Main from '../layout/Main'
+import LayoutMain from '../layout/Main'
 
-const HomeMain = styled(Main)`
+const Main = styled(LayoutMain)`
     position: relative;
     padding: 2rem 1.5rem;
 
@@ -15,4 +15,4 @@ const HomeMain = styled(Main)`
     }
 `
 
-export default HomeMain
+export default Main

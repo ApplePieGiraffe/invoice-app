@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import Store from 'store'
 import data from '../data/data.json'
+import { AnimatePresence } from 'framer-motion'
 
 import Layout from '../components/layout/Layout'
 import { deleteInvoice } from '../utilities/Invoices'
 
-export default function App({ Component, pageProps }) {
-	const router = useRouter()
+export default function App({ Component, pageProps, router }) {
 	const [invoices, setInvoices] = useState(null)
 
 	useEffect(() => {
@@ -29,12 +28,15 @@ export default function App({ Component, pageProps }) {
 				<link rel="icon" href="/images/favicon-32x32.png" type="image/icon"/>
 			</Head>
 			<Layout>
-				<Component 
-					{...pageProps} 
-					invoices={invoices} 
-					setInvoices={setInvoices} 
-					handleDelete={handleDelete}
-				/>
+				<AnimatePresence exitBeforeEnter>
+					<Component 
+						{...pageProps} 
+						invoices={invoices} 
+						setInvoices={setInvoices} 
+						handleDelete={handleDelete}
+						key={router.route}
+					/>
+				</AnimatePresence>
 			</Layout>
 		</>
 	)

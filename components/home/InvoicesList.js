@@ -15,7 +15,7 @@ const animation = {
     visible: {
         transition: {
             staggerChildren: .15
-          }
+        }
     }
 }
 

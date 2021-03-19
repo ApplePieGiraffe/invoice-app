@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: 'Spartan', sans-serif;
         transition: background .3s;
         -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
     }
 `
 

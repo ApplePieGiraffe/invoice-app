@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 
-import HomeMain from '../components/home/HomeMain'
+import Main from '../components/home/Main'
 import Wrapper from '../components/home/Wrapper'
 import Header from '../components/home/Header'
 import NoInvoices from '../components/home/NoInvoices'
 import InvoicesList from '../components/home/InvoicesList'
 
 import CreateInvoiceForm from '../components/form/CreateInvoiceForm'
+import { motion } from 'framer-motion'
 
 export default function Home({ invoices, setInvoices }) {
 	const [filter, setFilter] = useState(null)
@@ -29,7 +30,7 @@ export default function Home({ invoices, setInvoices }) {
 			<Head>
 				<title>Invoices {filteredInvoices && filteredInvoices.length !== 0 && `(${filteredInvoices.length})` || ''} | Frontend Mentor</title>
 			</Head>
-			<HomeMain>
+			<Main>
 				<CreateInvoiceForm 
 					invoices={invoices} 
 					setInvoices={setInvoices}
@@ -45,7 +46,7 @@ export default function Home({ invoices, setInvoices }) {
 					/>
 					{filteredInvoices && filteredInvoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={filteredInvoices}/>}
 				</Wrapper>
-			</HomeMain>
+			</Main>
 		</>
 	)
 }

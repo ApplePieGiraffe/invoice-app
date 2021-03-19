@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 import Dropdown from './Dropdown'
 import { Heading1 } from '../shared/Headings'
@@ -7,7 +8,7 @@ import { ButtonPlus } from '../shared/Buttons'
 
 import { invoicesMessage } from '../../utilities/Misc'
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
     display: flex;
     align-items: center;
     width: 100%;
@@ -49,11 +50,24 @@ const Button = styled(ButtonPlus)`
     }
 `
 
+const animation = {
+    hidden: { opacity: 0 },
+    visible: { 
+        opacity: 1,
+        transition: { duration: 1 }
+    }
+}
+
 export default function Header({ invoices, filter, setFilter, setFormIsOpen }) {
     const message = invoicesMessage(invoices && invoices.length, filter)
 
     return (
-        <Wrapper>
+        <Wrapper
+            variants={animation}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+        >
             <TextWrapper>
                 <Heading>Invoices</Heading>
                 <Subheading>{message}</Subheading>
