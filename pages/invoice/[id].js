@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { AnimatePresence } from 'framer-motion'
 
 import Wrapper from '../../components/invoice/Wrapper'
 import EditInvoiceForm from '../../components/form/EditInvoiceForm'
@@ -55,7 +56,9 @@ export default function Invoice({ invoices, setInvoices, handleDelete }) {
                     setFormIsOpen={setFormIsOpen}
                     handlePaid={handlePaid}
                 />
-                {invoice && <InvoiceBody invoice={invoice}/>}
+                <AnimatePresence>
+                    {invoice && <InvoiceBody invoice={invoice}/>}
+                </AnimatePresence>
             </Wrapper>
             <InvoiceFooter 
                 setPopupIsOpen={setPopupIsOpen}

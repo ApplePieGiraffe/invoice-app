@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import dayjs from 'dayjs'
+import { motion } from 'framer-motion'
 
 import InvoiceTable from './InvoiceTable'
 import { Heading1, Heading3 } from '../shared/Headings'
 import { fontStylesA, fontStylesB } from '../shared/Typography'
 
-const Wrapper = styled.section`
+const Wrapper = styled(motion.section)`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 2rem;
@@ -134,7 +135,7 @@ const EmailTitle = styled.span`
 
 export default function InvoiceBody({ invoice }) {
     return (
-        <Wrapper>
+        <Wrapper exit={{ opacity: 0, transition: { duration: 1 }}}>
             <Title>
                 <Id><span>#</span>{invoice.id}</Id>
                 <Description>{invoice.description}</Description>
