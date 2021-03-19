@@ -1,12 +1,14 @@
 import { Form as FormikForm } from 'formik'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 import Backdrop from './Backdrop'
 
-const Wrapper = styled.div`
-    position: absolute;
+const Wrapper = styled(motion.div)`
+    position: fixed;
     top: 5rem;
     left: 0;
+    z-index: 10;
     background: ${props => props.theme.color.form.bg};
     transition: background .3s;
 
@@ -42,14 +44,27 @@ const StyledForm = styled(FormikForm)`
     }
 `
 
+const animation = {
+    hidden: { x: '-100%' },
+    visible: { 
+        x: 0,
+        transition: { type: 'spring', duration: .75 }
+    }
+}
+
 export default function Form({ children }) {
     return (
-        <Backdrop>
-            <Wrapper>
+        <>
+            <Backdrop/>
+            <Wrapper
+                variants={animation}
+                initial="hidden"
+                animate="visible"
+            >
                 <StyledForm>
                     {children}
                 </StyledForm>
             </Wrapper>
-        </Backdrop>
+        </>
     )
 }

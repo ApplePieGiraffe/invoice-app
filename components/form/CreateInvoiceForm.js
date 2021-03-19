@@ -1,11 +1,12 @@
 import { Formik } from 'formik'
+import { AnimatePresence } from 'framer-motion'
 
 import Form from './Form'
 import Fields from './Fields'
 import Button from '../shared/Buttons'
 import { 
-    CreateInvoiceFormHeading as Heading, 
-    CreateInvoiceFormButtons as Buttons 
+    CreateInvoiceFormHeading as Heading,
+    CreateInvoiceFormButtons as Buttons
 } from './Components'
 
 import { initialValues, validationSchema } from '../../data/Form'
@@ -28,22 +29,24 @@ export default function CreateInvoiceForm({ invoices, setInvoices, setOpen }) {
     }
 
     return (
-        <Formik 
-            initialValues={initialValues} 
-            validationSchema={validationSchema} 
-            onSubmit={onSubmit}
-        >
-            {formik => (
-                <Form>
-                    <Heading>Create Invoice</Heading>
-                    <Fields/>
-                    <Buttons>
-                        <Button type="button" secondary onClick={() => setOpen(false)}>Discard</Button>
-                        <Button type="button" tertiary onClick={() => addDraft(formik.values)}>Save as Draft</Button>
-                        <Button type="submit">Save & Send</Button>
-                    </Buttons>
-                </Form>
-            )}
-        </Formik>
+        <AnimatePresence>
+            <Formik 
+                initialValues={initialValues} 
+                validationSchema={validationSchema} 
+                onSubmit={onSubmit}
+            >
+                {formik => (
+                    <Form>
+                        <Heading>Create Invoice</Heading>
+                        <Fields/>
+                        <Buttons>
+                            <Button type="button" secondary onClick={() => setOpen(false)}>Discard</Button>
+                            <Button type="button" tertiary onClick={() => addDraft(formik.values)}>Save as Draft</Button>
+                            <Button type="submit">Save & Send</Button>
+                        </Buttons>
+                    </Form>
+                )}
+            </Formik>
+        </AnimatePresence>
     )
 }
