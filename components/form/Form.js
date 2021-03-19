@@ -45,7 +45,10 @@ const StyledForm = styled(FormikForm)`
 `
 
 const animation = {
-    hidden: { x: '-100%' },
+    hidden: { 
+        x: '-100%',
+        transition: { type: 'spring', duration: .75 }
+    },
     visible: { 
         x: 0,
         transition: { type: 'spring', duration: .75 }

@@ -121,7 +121,7 @@ const animation = {
 
 export default function InvoiceItem({ id, paymentDue, clientName, total, status }) {
     return (
-        <Link href={`/invoice/${id}`} passHref={true}>
+        <Link href={`/invoice/${id}`} passHref={true} scroll={false}>
             <StyledLink variants={animation}>
                 <Id><span>#</span>{id}</Id>
                 <PaymentDue>Due {dayjs(paymentDue).format('DD MMM YYYY')}</PaymentDue>

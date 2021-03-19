@@ -30,7 +30,7 @@ const Wrapper = styled.a`
 
 export default function HomeLink({ className }) {
     return (
-        <Link href="/" passHref={true}>
+        <Link href="/" passHref={true} scroll={false}>
             <Wrapper className={className}>
                 <img src="/images/icon-arrow-left.svg" alt=""/>
                 <span>Go back</span>

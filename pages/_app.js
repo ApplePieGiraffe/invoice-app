@@ -17,7 +17,8 @@ export default function App({ Component, pageProps, router }) {
 		setInvoices(Store.get('invoices'))
 	}, [setInvoices])
 
-	function handleDelete(id) {
+	function handleDelete(id, closePopup) {
+		closePopup(false)
 		router.push('/')
 		deleteInvoice(id, invoices, setInvoices)
 	}

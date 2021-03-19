@@ -99,7 +99,7 @@ export default function DeletePopup({ id, popupIsOpen, setPopupIsOpen, handleDel
                             <Message>Are you sure you want to delete invoice {id}? This action cannot be undone.</Message>
                             <Buttons>
                                 <Button secondary onClick={() => setPopupIsOpen(false)}>Cancel</Button>
-                                <Button alert onClick={() => handleDelete(id)}>Delete</Button>
+                                <Button alert onClick={() => handleDelete(id, setPopupIsOpen)}>Delete</Button>
                             </Buttons>
                         </Popup>
                     </Backdrop>
