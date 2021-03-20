@@ -37,6 +37,7 @@ On that note—I was kind of lost when it came to structuring and organizing a l
 
 - There's a quick flash of light mode that appears before the page transitions to dark mode when the page loads if the theme stored in local storage is dark mode. This is because of Next.js's pre-rendering feature and I haven't worked on a solution for that yet.
 - I made a custom dropdown menu for the filter on the home page but I don't think it's very accessible. I tried to use labels and checkboxes to improve its accessibility, but IDK if that made it worse. 😥
+- The scroll bar in the forms isn't styled—which makes it look pretty ugly in dark mode! I should tackle that again sometime (styling it gave me a bunch of problems so I left it for now).
 - The package I used to disable scrolling takes into account the extra space created by removing the scroll bar in the desktop layout but not in the tablet/mobile layouts, leaving a tiny bit of space between the content of the page and edge of the screen in the tablet/mobile layout.
 - There might be other bugs, too, that I might have missed, so let me know if you find them! 😅
 
