@@ -1,5 +1,6 @@
 import { useFormikContext } from 'formik'
 import styled from 'styled-components'
+import { TouchScrollable } from 'react-scrolllock'
 
 import DatePicker from './DatePicker'
 import Input from './Input'
@@ -147,46 +148,48 @@ export default function Fields() {
     const formik = useFormikContext()
 
     return (
-        <Wrapper>
-            <FieldSet>
-                <Legend>Bill From</Legend>
-                <BillFrom>
-                    <Input label="Street Address" name="senderAddress.street"/>
-                    <Input label="City" name="senderAddress.city"/>
-                    <Input label="Post Code" name="senderAddress.postCode"/>
-                    <Input label="Country" name="senderAddress.country"/>
-                </BillFrom>
-            </FieldSet>
+        <TouchScrollable>
+            <Wrapper>
+                <FieldSet>
+                    <Legend>Bill From</Legend>
+                    <BillFrom>
+                        <Input label="Street Address" name="senderAddress.street"/>
+                        <Input label="City" name="senderAddress.city"/>
+                        <Input label="Post Code" name="senderAddress.postCode"/>
+                        <Input label="Country" name="senderAddress.country"/>
+                    </BillFrom>
+                </FieldSet>
 
-            <FieldSet>
-                <Legend>Bill To</Legend>
-                <BillTo>
-                    <Input label="Client's Name" name="clientName"/>
-                    <Input label="Client's Email" name="clientEmail" placeholder="e.g. email@example.com"/>
-                    <Input label="Street Address" name="clientAddress.street"/>
-                    <Input label="City" name="clientAddress.city"/>
-                    <Input label="Post Code" name="clientAddress.postCode"/>
-                    <Input label="Country" name="clientAddress.country"/>
-                </BillTo>
-            </FieldSet>
+                <FieldSet>
+                    <Legend>Bill To</Legend>
+                    <BillTo>
+                        <Input label="Client's Name" name="clientName"/>
+                        <Input label="Client's Email" name="clientEmail" placeholder="e.g. email@example.com"/>
+                        <Input label="Street Address" name="clientAddress.street"/>
+                        <Input label="City" name="clientAddress.city"/>
+                        <Input label="Post Code" name="clientAddress.postCode"/>
+                        <Input label="Country" name="clientAddress.country"/>
+                    </BillTo>
+                </FieldSet>
 
-            <FieldSet>
-                <OtherFields>
-                    <DatePicker label="Invoice Date" name="createdAt"/>
-                    <Select label="Payment Terms" name="paymentTerms" options={dropdownOptions}/>
-                    <Input label="Description" name="description" placeholder="e.g. Graphic Design Service"/>
-                </OtherFields>
-            </FieldSet>
+                <FieldSet>
+                    <OtherFields>
+                        <DatePicker label="Invoice Date" name="createdAt"/>
+                        <Select label="Payment Terms" name="paymentTerms" options={dropdownOptions}/>
+                        <Input label="Description" name="description" placeholder="e.g. Graphic Design Service"/>
+                    </OtherFields>
+                </FieldSet>
 
-            <Items name="items"/>
+                <Items name="items"/>
 
-            {formik.submitCount > 0 && formik.errors && 
-                <Errors>
-                    {reduceErrors(formik.errors).map((item, index) => (
-                        <Error key={index}>{item}</Error>
-                    ))}
-                </Errors>
-            }
-        </Wrapper>
+                {formik.submitCount > 0 && formik.errors && 
+                    <Errors>
+                        {reduceErrors(formik.errors).map((item, index) => (
+                            <Error key={index}>{item}</Error>
+                        ))}
+                    </Errors>
+                }
+            </Wrapper>
+        </TouchScrollable>
     )
 }
