@@ -31,11 +31,11 @@ const StyledWrapper = styled(motion.div)`
 const animation = {
     hidden: { 
         opacity: 0, 
-        x: '50%' 
+        // x: '250px' 
     },
     visible: { 
         opacity: 1,
-        x: 0,
+        // x: 0,
         transition: { type: 'tween', ease: 'easeOut', duration: .5 }
     },
     exit: {
