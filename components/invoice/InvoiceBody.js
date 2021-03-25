@@ -57,10 +57,11 @@ const Description = styled.span`
 
 // sender address
 
-const SenderAddress = styled.div`
+const SenderAddress = styled.address`
     display: flex;
     flex-direction: column;
     ${fontStylesB}
+    font-style: normal;
 
     @media only screen and (min-width: 768px) {
         text-align: end;
@@ -90,6 +91,8 @@ const DateTitle = styled.span`
 `
 
 const Subheading = styled(Heading3)`
+    text-decoration: none;
+    
     && {
         font-size: .9375rem;
     }
@@ -97,12 +100,13 @@ const Subheading = styled(Heading3)`
 
 // client address
 
-const ClientAddress = styled.div`
+const ClientAddress = styled.address`
     grid-column: 2 / 3;
     grid-row: 3 / 4;
     display: flex;
     flex-direction: column;
     ${fontStylesB}
+    font-style: normal;
 
     & *:nth-child(1) {
         margin-bottom: .5rem;
@@ -170,7 +174,7 @@ export default function InvoiceBody({ invoice }) {
 
             <Email>
                 <EmailTitle>Sent to</EmailTitle>
-                <Subheading as="span">{invoice.clientEmail}</Subheading>
+                <Subheading as="a" href={`mailto:${invoice.clientEmail}`}>{invoice.clientEmail}</Subheading>
             </Email>
 
             <InvoiceTable className="invoice-table" items={invoice.items} total={invoice.total}/>

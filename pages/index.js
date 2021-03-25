@@ -44,7 +44,10 @@ export default function Home({ invoices, setInvoices }) {
 						setFilter={setFilter}
 						setFormIsOpen={setFormIsOpen}
 					/>
-					{filteredInvoices && filteredInvoices.length === 0 ? <NoInvoices/> : <InvoicesList invoices={filteredInvoices}/>}
+					{filteredInvoices?.length === 0 ? 
+						<NoInvoices/> : 
+						<InvoicesList invoices={filteredInvoices}/>
+					}
 				</Wrapper>
 			</Main>
 		</>
