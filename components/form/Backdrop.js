@@ -23,7 +23,7 @@ const animation = {
     }
 }
 
-export default function Backdrop({ children }) {
+export default function Backdrop({ setIsOpen, children }) {
     return (
         <ScrollLock>
             <StyledBackdrop
@@ -31,6 +31,7 @@ export default function Backdrop({ children }) {
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
+                onClick={() => setIsOpen(false)}
             >
                 {children}
             </StyledBackdrop>

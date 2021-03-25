@@ -61,6 +61,7 @@ export default function Invoice({ invoices, setInvoices, handleDelete }) {
                 </AnimatePresence>
             </Wrapper>
             <InvoiceFooter 
+                status={invoice?.status}
                 setPopupIsOpen={setPopupIsOpen}
                 setFormIsOpen={setFormIsOpen}
                 handlePaid={handlePaid}

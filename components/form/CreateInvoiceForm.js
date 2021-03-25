@@ -37,7 +37,7 @@ export default function CreateInvoiceForm({ invoices, setInvoices, isOpen, setIs
                 onSubmit={onSubmit}
                 >
                     {formik => (
-                        <Form>
+                        <Form setIsOpen={setIsOpen}>
                             <Heading>Create Invoice</Heading>
                             <Fields/>
                             <Buttons>

@@ -55,10 +55,10 @@ const animation = {
     }
 }
 
-export default function Form({ children }) {
+export default function Form({ setIsOpen, children }) {
     return (
         <>
-            <Backdrop/>
+            <Backdrop setIsOpen={setIsOpen}/>
             <Wrapper
                 variants={animation}
                 initial="hidden"

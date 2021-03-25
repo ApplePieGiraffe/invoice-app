@@ -18,12 +18,12 @@ const Wrapper = styled(motion.div)`
     }
 `
 
-export default function InvoiceFooter({ setPopupIsOpen, setFormIsOpen, handlePaid }) {
+export default function InvoiceFooter({ status, setPopupIsOpen, setFormIsOpen, handlePaid }) {
     return (
         <Wrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
             <Button secondary onClick={() => setFormIsOpen(true)}>Edit</Button>
             <Button alert onClick={() => setPopupIsOpen(true)}>Delete</Button>
-            <Button onClick={handlePaid}>Mark As Paid</Button>
+            {status !== 'paid' ? <Button onClick={handlePaid}>Mark As Paid</Button> : null}
         </Wrapper>
     )
 }

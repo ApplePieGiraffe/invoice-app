@@ -42,7 +42,7 @@ export default function InvoiceHeader({ className, status, setPopupIsOpen, setFo
             <Buttons>
                 <Button secondary onClick={() => setFormIsOpen(true)}>Edit</Button>
                 <Button alert onClick={() => setPopupIsOpen(true)}>Delete</Button>
-                <Button onClick={handlePaid}>Mark As Paid</Button>
+                {status !== 'paid' ? <Button onClick={handlePaid}>Mark As Paid</Button> : null}
             </Buttons>
         </Wrapper>
     )
