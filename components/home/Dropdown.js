@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import DropdownOption from './DropdownOption'
 import { Heading4 } from '../shared/Headings'
@@ -67,7 +67,16 @@ const Wrapper = styled.div`
     }
 
     ${Options} {
-        display: ${props => props.open ? 'flex' : 'none'};
+        display: flex;
+
+        ${props => !props.open && css`
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            overflow: hidden;
+        `}
     }
 `
 
