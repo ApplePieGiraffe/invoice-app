@@ -22,7 +22,7 @@ export default function Invoice({ invoices, setInvoices, handleDelete }) {
 
     useEffect(() => {
         setId(router.query.id)
-        setInvoice(invoices && invoices.find(invoice => router.query.id === invoice.id))
+        setInvoice(invoices?.find(invoice => router.query.id === invoice.id))
     }, [router.query, invoices])
 
     function handlePaid() {
@@ -51,7 +51,7 @@ export default function Invoice({ invoices, setInvoices, handleDelete }) {
                 <HomeLink/>
                 <InvoiceHeader 
                     className="invoice-page-header" 
-                    status={invoice && invoice.status} 
+                    status={invoice?.status} 
                     setPopupIsOpen={setPopupIsOpen}
                     setFormIsOpen={setFormIsOpen}
                     handlePaid={handlePaid}

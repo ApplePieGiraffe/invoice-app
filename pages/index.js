@@ -8,7 +8,6 @@ import NoInvoices from '../components/home/NoInvoices'
 import InvoicesList from '../components/home/InvoicesList'
 
 import CreateInvoiceForm from '../components/form/CreateInvoiceForm'
-import { motion } from 'framer-motion'
 
 export default function Home({ invoices, setInvoices }) {
 	const [filter, setFilter] = useState(null)
@@ -28,7 +27,12 @@ export default function Home({ invoices, setInvoices }) {
 	return (
 		<>
 			<Head>
-				<title>Invoices {filteredInvoices && filteredInvoices.length !== 0 && `(${filteredInvoices.length})` || ''} | Frontend Mentor</title>
+				<title>
+					Invoices {filteredInvoices && 
+					filteredInvoices.length !== 0 && 
+					`(${filteredInvoices.length})` || 
+					''} | Frontend Mentor
+				</title>
 			</Head>
 			<Main>
 				<CreateInvoiceForm 
