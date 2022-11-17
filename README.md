@@ -5,6 +5,7 @@
 ## Intro
 
 Hello, there! 👋
+Making a change into a new branch.
 
 Thank you for checking out my solution to the [invoice app challenge](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl) from Frontend Mentor. 😀
 
